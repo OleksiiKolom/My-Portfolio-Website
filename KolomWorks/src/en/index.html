@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <!-- prettier-ignore -->
+    @@include('../html/_head-en.htm', { 
+		"title": "Home", 
+		"description": "System administrator and frontend developer. Experience with Windows, Linux, web development and infrastructure. Projects, skills and contacts.", 
+		"keywords": "system administrator, frontend developer, web development, website creation, website development developer portfolio, IT specialist, Windows setup, Windows administration, Linux administration, IT services, computer repair, laptop repair, computer setup, Bila Tserkva, Kyiv region", 
+		"url": "https://kolomworks.com/en/index.html", 
+		"ogTitle": "Oleksii Kolom — System Administrator and Frontend Developer", 
+		"ogImage": "../img/ogImage/01.png" })
+    <body>
+        <div class="wrapper">
+            @@include('../html/_header-en.htm',{})
+            <main class="page">
+                <section class="introduction">
+                    <div class="introduction__container">
+                        <div class="introduction__text-block _anim-on-scroll">
+                            <h1 class="introduction__title">
+                                Hi &#128075;,<br />
+                                My name is<br />
+                                <span class="text-gradient">Oleksii</span><br />
+                            </h1>
+                            <div class="introduction__proffession">
+                                I’m <span class="introduction__typing"></span>
+                            </div>
+                            <ul class="introduction__list">
+                                <li class="introduction__item">
+                                    a web developer
+                                </li>
+                                <li class="introduction__item">
+                                    an IT administrator
+                                </li>
+                                <li class="introduction__item">
+                                    a computer engineer
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="introduction__image _anim-on-scroll">
+                            <img
+                                src="../img/introduction/01.jpeg"
+                                alt="Author's photo"
+                            />
+                        </div>
+                    </div>
+                </section>
+                @@include('../html/_tech-stack-en.htm', {"titleElement": "h2"})
+                @@include('../html/_projects-en.htm', {"titleElement": "h2"})
+            </main>
+            @@include('../html/_footer-en.htm',{})
+            <div id="particles-js" aria-hidden="true"></div>
+        </div>
+        @@include('../html/_popup-language-en.htm',{})
+        @@include('../html/_popup-ru-aggression.htm',{})
+        @@include('../html/_welcome-screen.htm',{})
+        @@include('../html/_overlay-patriotic.htm',{})
+        @@include('../html/_js.htm',{})
+    </body>
+</html>

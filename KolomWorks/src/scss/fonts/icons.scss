@@ -1,0 +1,127 @@
+// ===============================================================
+// = Н А Л А Ш Т У В А Н Н Я   І К О Н К О В О Г О   Ш Р И Ф Т У =
+// ===============================================================
+
+@include font("icons", "icons", "normal", "normal");
+
+%icons-font {
+	font-family: "icons";
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class*="_icon-"] {
+	&:before {
+		@extend %icons-font;
+		display: inline-block;
+	}
+}
+
+._icon-windows:before {
+	content: "\e917";
+}
+
+._icon-error:before {
+	content: "\e918";
+}
+
+._icon-success:before {
+	content: "\e919";
+}
+
+._icon-telephone-landline:before {
+	content: "\e90f";
+}
+
+._icon-key-card:before {
+	content: "\e910";
+}
+
+._icon-video-camera:before {
+	content: "\e911";
+}
+
+._icon-printer:before {
+	content: "\e912";
+}
+
+._icon-barcode:before {
+	content: "\e913";
+}
+
+._icon-thin-client:before {
+	content: "\e914";
+}
+
+._icon-repair:before {
+	content: "\e915";
+}
+
+._icon-linux:before {
+	content: "\e916";
+}
+
+._icon-work:before {
+	content: "\e903";
+}
+
+._icon-university:before {
+	content: "\e90c";
+}
+
+._icon-envelope:before {
+	content: "\e900";
+}
+
+._icon-phone:before {
+	content: "\e901";
+}
+
+._icon-location:before {
+	content: "\e902";
+}
+
+._icon-telegram:before {
+	content: "\e904";
+}
+
+._icon-sun:before {
+	content: "\e905";
+}
+
+._icon-moon:before {
+	content: "\e906";
+}
+
+._icon-linkedin:before {
+	content: "\e907";
+}
+
+._icon-chain:before {
+	content: "\e908";
+}
+
+._icon-instagram:before {
+	content: "\e909";
+}
+
+._icon-gitHub:before {
+	content: "\e90a";
+}
+
+._icon-download:before {
+	content: "\e90b";
+}
+
+._icon-calendar:before {
+	content: "\e90d";
+}
+
+._icon-logo_k:before {
+	content: "\e90e";
+}

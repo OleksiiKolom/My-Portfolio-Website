@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+    <!-- prettier-ignore -->
+    @@include('../html/_head-ru.htm', { 
+		"title": "Домашняя страничка", 
+		"description": "Системный администратор и Frontend разработчик. Опыт работы с Windows, Linux, веб-разработкой и IT-инфраструктурой. Проекты, навыки и контакты.", 
+		"keywords": "системный администратор, frontend разработчик, веб-разработка, создание сайтов, разработка сайтов, портфолио разработчика, IT специалист, настройка Windows, администрирование Windows, администрирование Linux, IT услуги, ремонт компьютеров, ремонт ноутбуков, настройка компьютеров, Белая Церковь, Киевская область", 
+		"url": "https://kolomworks.com/ru/index.html", 
+		"ogTitle": "Алексей Коломийченко — системный администратор и Frontend разработчик", 
+		"ogImage": "../img/ogImage/01.png" })
+
+    <body>
+        <div class="wrapper">
+            @@include('../html/_header-ru.htm',{})
+            <main class="page">
+                <section class="introduction">
+                    <div class="introduction__container">
+                        <div class="introduction__text-block _anim-on-scroll">
+                            <h1 class="introduction__title">
+                                Привет &#128075;,<br />
+                                Меня зовут <br />
+                                <span class="text-gradient">Алексей</span><br />
+                            </h1>
+                            <div class="introduction__proffession">
+                                Я <span class="introduction__typing"></span>
+                            </div>
+                            <ul class="introduction__list">
+                                <li class="introduction__item">
+                                    веб-разработчик
+                                </li>
+                                <li class="introduction__item">
+                                    ІТ-администратор
+                                </li>
+                                <li class="introduction__item">
+                                    компьютерный инженер
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="introduction__image _anim-on-scroll">
+                            <img
+                                src="../img/introduction/01.jpeg"
+                                alt="Фото автора"
+                            />
+                        </div>
+                    </div>
+                </section>
+                @@include('../html/_tech-stack-ru.htm', {"titleElement": "h2"})
+                @@include('../html/_projects-ru.htm', {"titleElement": "h2"})
+            </main>
+            @@include('../html/_footer-ru.htm',{})
+            <div id="particles-js"></div>
+        </div>
+        @@include('../html/_popup-language-ru.htm',{})
+        @@include('../html/_popup-ru-aggression.htm',{})
+        @@include('../html/_welcome-screen.htm',{})
+        @@include('../html/_overlay-patriotic.htm',{})
+        @@include('../html/_js.htm',{})
+    </body>
+</html>

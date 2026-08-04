@@ -1,0 +1,177 @@
+// ===========================================================
+// = С Т И Л І   Д Л Я   С Т О Р І Н К И " П Р О   М Е Н Е " =
+// ===========================================================
+
+.about-me {
+	margin-bottom: 60px;
+
+	&__container {}
+
+	&__title {
+		text-align: left;
+	}
+
+	&__text {
+		line-height: 1.5;
+
+		&._active-anim-skroll {
+			p {
+				animation: anim-aboutMe-p-scroll 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+			}
+
+			@for $i from 1 through 6 {
+				p:nth-child(#{$i}) {
+					animation-delay: 0.5s + ($i - 1) * 0.2s;
+				}
+			}
+
+			@keyframes anim-aboutMe-p-scroll {
+				to {
+					transform: translateY(0);
+					opacity: 1;
+				}
+			}
+		}
+
+		p {
+			transform: translateY(50%);
+			opacity: 0;
+
+			&:not(:last-child) {
+				margin-bottom: em(26, 18);
+			}
+		}
+	}
+
+	&__title,
+	&__text {
+		max-width: 840px;
+	}
+
+	&__link-EFS {
+		@media (min-width: $tablet) {
+			&:hover {
+				color: #760c27;
+				transition: color 0.3s ease;
+			}
+		}
+	}
+}
+
+.timeline {
+
+	&_work {
+		margin-bottom: 60px;
+	}
+
+	&_education {}
+
+	&__container {}
+
+	&__title {
+		text-align: left;
+	}
+
+	&__info {
+		display: flex;
+
+		padding-bottom: em(24, 18);
+		border-bottom: 2px solid var(--primary-opacity);
+
+		transform: translateY(80%);
+		opacity: 0;
+
+		.timeline__container._active-anim-skroll & {
+			animation: anim-aboutMe-timeline-scroll 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+
+			@for $i from 1 through 4 {
+				&:nth-child(#{$i}) {
+					animation-delay: 0.5s + ($i - 1) * 0.2s;
+				}
+			}
+
+			@keyframes anim-aboutMe-timeline-scroll {
+				to {
+					transform: translateY(0);
+					opacity: 1;
+				}
+			}
+		}
+
+		&:not(:last-child) {
+			margin-bottom: em(30, 18);
+		}
+
+		@media (min-width: $mobile) {
+			justify-content: space-between;
+			column-gap: 20px;
+		}
+
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			row-gap: 20px;
+		}
+	}
+
+	&__title,
+	&__info {
+		max-width: 840px;
+	}
+
+	&__left-column {}
+
+	&__profession {
+		font-size: toRem(20);
+		letter-spacing: em(1, 20);
+
+		&:not(:last-child) {
+			margin-bottom: em(30, 20);
+		}
+
+		@media (max-width: $mobile) {
+			line-height: 1.4;
+		}
+	}
+
+	&__right-column {
+		display: flex;
+		flex-direction: column;
+		align-items: end;
+		justify-content: space-between;
+		min-width: 200px;
+
+		@media (max-width: $mobile) {
+			flex-direction: row-reverse;
+			align-items: center;
+			justify-content: start;
+			column-gap: 16px;
+		}
+
+		@media (max-width: $mobileSmall) {
+			justify-content: space-between;
+		}
+
+		@media (max-width: 340px) {
+			column-gap: 6px;
+		}
+	}
+
+	&__form {}
+
+	&__university,
+	&__date {
+		font-size: toRem(14);
+		font-weight: 500;
+		letter-spacing: em(1, 14);
+
+		&::before {
+			margin-right: em(8, 14);
+		}
+	}
+
+	&__university {
+		line-height: 1.6;
+	}
+
+	&__date {}
+}

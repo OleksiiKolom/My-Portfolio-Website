@@ -1,0 +1,28 @@
+// Site colors (Кольори сайту):
+// =================================================================
+:root {
+	--main-grey: #666666;
+	--main-dark: #191919;
+	--white: #FFFFFF;
+	--red: #ff0f0f;
+	--gradient-colors: rgba(89, 232, 76, 1) 10%, rgba(66, 238, 176, 1) 25%, rgba(42, 150, 118, 1) 46%, rgba(99, 165, 187, 1) 76%, rgba(53, 75, 72, 1) 100%;
+	--primary: rgb(102, 102, 102); // Site main color - (Основний колір сайту)
+	--primary-opacity: rgb(102, 102, 102, 0.3); // Site main opacity color - (Основний колір сайту  з прозорістю)
+	--secondary: #FFFFFF; // Site secondary color - (Додатковий колір сайту)
+	--accent: #42446E; // Site accent color - (Наприклад: кнопки дії, заголовки, посилання)
+	--inverse: #000000; // Site inverse color - (Наприклад: для створення контрасту між фоном та текстом)
+	--header-bg: rgba(255, 255, 255, 0.95);
+	--skill-card-bg: rgba(255, 255, 255, 0.5);
+	--item-projects-bg: #FFFFFF;
+}
+
+._dark-mode {
+	--primary: #a7a7a7; // Site main color - (Основний колір сайту)
+	--primary-opacity: rgb(167, 167, 167, 0.3); // Site main opacity color - (Основний колір сайту  з прозорістю)
+	--secondary: #191919; // Site secondary color - (Додатковий колір сайту)
+	--accent: #CCCCCC; // Site accent color - (Наприклад: кнопки дії, заголовки, посилання)
+	--inverse: #FFFFFF; // Site inverse color - (Наприклад: для створення контрасту між фоном та текстом)
+	--header-bg: rgba(25, 25, 25, 0.95);
+	--skill-card-bg: rgba(25, 25, 25, 0.5);
+	--item-projects-bg: #363636;
+}

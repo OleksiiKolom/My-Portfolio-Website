@@ -1,0 +1,315 @@
+// =====================================
+// = С Т И Л І   Д Л Я   Н А В И Ч О К =
+// =====================================
+
+.tech-stack {
+
+	&:not(:last-child) {
+		margin-bottom: 180px;
+
+		@media (max-width: $tablet) {
+			margin-bottom: 160px;
+		}
+
+		@media (max-width: $mobile) {
+			margin-bottom: 120px;
+		}
+
+		@media (max-width: $mobileSmall) {
+			margin-bottom: 100px;
+		}
+	}
+
+	&__container {}
+
+	&__subtitle {}
+
+	&__cards {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		column-gap: 25px;
+		row-gap: 50px;
+
+		@media (max-width: $tablet) {
+			column-gap: 20px;
+			row-gap: 40px;
+		}
+
+		@media (max-width: $mobile) {
+			row-gap: 30px;
+		}
+
+		@media (max-width: $mobileSmall) {
+			row-gap: 20px;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 80px;
+
+			@media (max-width: $tablet) {
+				margin-bottom: 60px;
+			}
+
+			@media (max-width: $mobile) {
+				margin-bottom: 40px;
+			}
+		}
+	}
+
+	&__skills {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		column-gap: 110px;
+		row-gap: 65px;
+
+		@media (max-width: $tablet) {
+			column-gap: 90px;
+			row-gap: 50px;
+		}
+
+		@media (max-width: $mobile) {
+			column-gap: 70px;
+			row-gap: 40px;
+		}
+
+		@media (max-width: $mobileSmall) {
+			column-gap: 65px;
+			row-gap: 35px;
+		}
+	}
+
+	&__item {
+		position: relative;
+
+	}
+
+	&__image {
+		position: relative;
+		opacity: 0;
+		transform: scale(0.8);
+
+		.tech-stack__skills._active-anim-skroll & {
+			animation: anim-tech-stack-item-appear 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+
+			@keyframes anim-tech-stack-item-appear {
+				60% {
+					opacity: 0.8;
+				}
+
+				100% {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+		}
+
+		@media (min-width: $tablet) {
+			top: 0;
+			transition: top 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+
+			.tech-stack__item:hover & {
+				top: -30px;
+			}
+		}
+
+		@mixin sizeStyles($size) {
+			height: $size;
+			width: $size;
+		}
+
+		@include sizeStyles(120px);
+
+		@media (max-width: $mobile) {
+			@include sizeStyles(100px);
+		}
+
+		@media (max-width: $mobileSmall) {
+			@include sizeStyles(90px);
+		}
+
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&__name {
+		position: absolute;
+		width: 150%;
+		left: 50%;
+		transform: translateY(-20px) translateX(-50%);
+		opacity: 0;
+
+		color: var(--accent);
+		font-weight: 500;
+		letter-spacing: em(-5, 18);
+		text-align: center;
+
+		@media (min-width: $tablet) {
+			transition:
+				transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000),
+				opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000),
+				letter-spacing 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+
+			.tech-stack__item:hover & {
+				transform: translateY(0) translateX(-50%);
+				opacity: 1;
+				letter-spacing: em(0.8, 18);
+			}
+		}
+	}
+}
+
+.skill-card {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+
+	padding: 48px 24px;
+	width: calc((100% - 50px) / 3);
+	opacity: 0;
+
+	background-color: var(--skill-card-bg);
+	box-shadow: 2px 2px 100px 0px rgba(0, 0, 0, 0.2);
+	border-radius: borderRadius(395, 375, 20);
+
+	&._active-anim-skroll {
+		$animationDuration: 0.5s;
+
+		@keyframes anim-skill-card {
+			0% {
+				transform: translateY(20%);
+			}
+
+			60% {
+				opacity: 0.8;
+			}
+
+			100% {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+
+		@mixin anim-projects-scroll-default {
+			@media (min-width: 1150px) {
+
+				// Кожен перший елемент (1, 4, 7, 10...)
+				&:nth-child(3n + 1) {
+					animation: anim-skill-card $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+				}
+
+				// Кожен другий елемент (2, 5, 8, 11...)
+				&:nth-child(3n + 2) {
+					animation: anim-skill-card $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards 0.2s;
+				}
+
+				// Кожен третій елемент (3, 6, 9, 12...)
+				&:nth-child(3n) {
+					animation: anim-skill-card $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards 0.4s;
+				}
+			}
+		}
+
+		@mixin anim-projects-scroll-1150px {
+			@media (max-width: 1150px) {
+
+				// Непарні елементи (1, 3, 5, 7...)
+				&:nth-child(odd) {
+					animation: anim-skill-card $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+				}
+
+				// Парні елементи (2, 4, 6, 8...)
+				&:nth-child(even) {
+					animation: anim-skill-card $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards 0.2s;
+				}
+			}
+		}
+
+		@mixin anim-projects-scroll-phone {
+			@media (max-width: $mobile) {
+				&:nth-child(n) {
+					animation: anim-skill-card $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+				}
+			}
+		}
+
+		@include anim-projects-scroll-default;
+		@include anim-projects-scroll-1150px;
+		@include anim-projects-scroll-phone;
+	}
+
+	html._theme-animating & {
+		transition: background-color $theme-anim-duration ease;
+	}
+
+	&::after {
+		content: "";
+		display: block;
+		height: 2px;
+		background: linear-gradient(90deg, var(--gradient-colors));
+		background-size: 150% 150%;
+		animation: gradient-logo 5s ease infinite;
+	}
+
+	@media (max-width: 1150px) {
+		width: calc((100% - 25px) / 2);
+	}
+
+	@media (max-width: $mobile) {
+		width: 85%;
+		min-height: 280px;
+	}
+
+	@media (max-width: $mobileSmall) {
+		width: 100%;
+	}
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: 10px;
+	}
+
+	&__title {
+		font-size: toRem(24);
+		font-weight: 500;
+		text-align: center;
+
+		flex: 1 1 auto;
+
+		html._light-mode & {
+			color: var(--main-dark);
+		}
+
+		html._dark-mode & {
+			color: var(--accent);
+		}
+	}
+
+	&__icon {
+		font-size: toRem(52);
+	}
+
+	&__description {
+		flex: 1 1 auto;
+		font-weight: 300;
+		line-height: 1.5;
+
+		html._light-mode & {
+			color: var(--primary);
+		}
+
+		html._dark-mode & {
+			color: var(--accent);
+		}
+	}
+}

@@ -1,0 +1,283 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background-color: #beb8ac;
+}
+
+/*~~~~~~~~~~ Цілий блок усього резюме ~~~~~~~~~~*/
+.resume-box {
+	width: 800px;
+	height: 1130px;
+	margin: 50px auto;
+
+	box-shadow: 5px 21px 20px 20px #3d3f4238;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+/*~~~~~~~~~~ Позиціювання лівої і правої частини ~~~~~~~~~~*/
+.resume-box__left-section,
+.resume-box__right-section {
+	position: relative;
+	float: left;
+}
+
+
+/*~~~~~~~~~~ Ліва частина резюме ~~~~~~~~~~*/
+
+.left-section {
+	width: 280px;
+	height: 100%;
+
+	background-color: #3D3F42;
+	color: #f2f3f4;
+}
+
+/*~~~~~~~~~~ Декоративний трикутник під аватаром ~~~~~~~~~~*/
+.left-section__decoration {
+	border-top: 270px solid #00A86b;
+	border-right: 280px solid transparent;
+}
+
+/*~~~~~~~~~~ Фото аватара ~~~~~~~~~~*/
+.left-section__avatar {
+	position: absolute;
+	top: 0px;
+	width: 234px;
+	height: 234px;
+	margin: 20px;
+	margin-bottom: 10px;
+
+	border-radius: 50%;
+	border: 3px solid #f2f3f4;
+}
+
+/*~~~~~~~~~~ Ім'я та фамілія під фото ~~~~~~~~~~*/
+.left-section__full-name {
+	margin: 0px 20px;
+
+	color: #f2f3f4;
+	font-family: serif;
+	font-size: 1.5em;
+	font-weight: normal;
+	font-style: italic;
+	letter-spacing: 0.099em;
+	text-align: center;
+}
+
+/*~~~~~~~~~~ Назва професії ~~~~~~~~~~~~~~~*/
+.left-section__profession {
+	margin: 20px 35px;
+	padding: 6px 0px;
+
+	color: #00A86b;
+	font-size: 1.875em;
+	font-weight: normal;
+	letter-spacing: 1px;
+	text-align: center;
+
+	border-top: 2px solid #f2f3f4;
+	border-bottom: 2px solid #f2f3f4;
+	border-radius: 8%;
+}
+
+/*~~~~~~~~~~ Стилі для заголовків блоків лівої частини ~~~~~~~~~~*/
+.left-section__block-names {
+	margin-bottom: 0.4545em;
+
+	text-align: center;
+	text-decoration: overline underline;
+	text-transform: uppercase;
+
+	font-size: 1.375em;
+	font-weight: normal;
+	font-style: normal;
+	letter-spacing: 0.114em;
+}
+
+/*~~~~~~~~~~ Стилі для блоків лівої частини ~~~~~~~~~~*/
+.left-section_left-block {
+	position: absolute;
+	width: 240px;
+	margin: 20px;
+	margin-top: 10px;
+
+	font-size: 0.9375em;
+	font-style: italic;
+	line-height: 1.7;
+	letter-spacing: 0.0833em;
+	list-style: inside;
+}
+
+/*~~~~~~~~~~ Стилі для вкладених списків лівої частини ~~~~~~~~~~*/
+.left-section__list ul {
+	list-style: none;
+	margin-left: 20px;
+}
+
+/*~~~~~~~~~~ Позиціювання кожного блоку лівої частини ~~~~~~~~~~*/
+
+.left-section__info {
+	bottom: 353px;
+}
+
+.left-section__languages {
+	bottom: 202px;
+}
+
+.left-section__qualities {
+	bottom: 0px;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~ Права частина резюме ~~~~~~~~~~~~~~~~~~~~*/
+
+.right_section {
+	width: 520px;
+	height: 100%;
+
+	background-color: #f2f3f4;
+	color: #3D3F42;
+}
+
+.right-section_right-block {
+	position: absolute;
+	width: 480px;
+	margin: 20px;
+	margin-top: 10px;
+
+	font-size: 1.125em;
+	font-style: italic;
+	line-height: 1.7;
+	letter-spacing: 0.0833em;
+	list-style: inside;
+}
+
+/*~~~~~~~~~~ Стилі для заголовків блоків правої частини ~~~~~~~~~~*/
+.right-section__block-names {
+	margin-bottom: 0.4545em;
+
+	text-align: center;
+	text-decoration: overline underline;
+	text-transform: uppercase;
+
+	font-size: 1.375em;
+	font-weight: normal;
+	font-style: normal;
+	letter-spacing: 0.114em;
+}
+
+/*~~~~~~~~~~ Стилі для блоку з описом людини ~~~~~~~~~~*/
+.right-section__about-me {
+	margin-top: 22px;
+}
+
+.right-section__about-me p {
+	text-indent: 35px;
+	line-height: 1.388;
+}
+
+.right-section__about-me p:not(:last-child) {
+	margin-bottom: 0.5555em;
+}
+
+/*~~~~~~~~~~ Стилі для блоку освіти ~~~~~~~~~~*/
+.right-section__education {
+	bottom: 579px;
+}
+
+.right-section__education h4 {
+	text-indent: 50px;
+}
+
+/*~~~~~~~~~~ Стилі для блоку з основими навичками ~~~~~~~~~~*/
+.right-section__skills {
+	bottom: 320px;
+	width: 520px;
+	margin: 10px 0px 20px 0px;
+}
+
+.skill-right-section {
+	float: left;
+	width: 220px;
+	margin: 10px 20px;
+}
+
+.skill-right-section__name {
+	font-weight: normal;
+}
+
+/*~~~~~~~~~~ Прогрес бар ~~~~~~~~~~*/
+.skill-right-section__progress {
+	background-color: #3D3F42;
+	border-radius: 4px;
+	height: 8px;
+}
+
+.skill-right-section__progress::after {
+	content: '';
+	background-color: #00A86b;
+	border-radius: 4px;
+	height: 8px;
+	display: block;
+}
+
+/*~~~~~~~~~~ Встановлює прогресс для кожного елемента ~~~~~~~~~~*/
+#pr_HTML_CSS::after {
+	width: 90%;
+}
+
+#pr_SQL_MySQL::after {
+	width: 85%;
+}
+
+#pr_C_plus_plus::after {
+	width: 40%;
+}
+
+#pr_JavaScript::after {
+	width: 75%;
+}
+
+#pr_Git_GitHub::after {
+	width: 75%;
+}
+
+#pr_Linux::after {
+	width: 35%;
+}
+
+/*~~~~~~~~~~ Стилі для блоку з додатковими навичками ~~~~~~~~~~*/
+.right-section__additional-skills {
+	bottom: 175px;
+}
+
+.right-section__additional-skills li {
+	float: left;
+	width: 33%;
+	list-style: none;
+}
+
+.right-section__additional-skills li::before {
+	content: '';
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background-color: #00A86b;
+	margin-right: 8px;
+	border: 1px solid #3D3F42;
+	margin-bottom: 3px;
+}
+
+/*~~~~~~~~~~ Стилі для блоку хобі ~~~~~~~~~~*/
+.right-section__hobbies {
+	bottom: 0px;
+}
+
+.right-section__hobbies li {
+	width: 50%;
+	float: left;
+}

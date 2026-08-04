@@ -1,0 +1,379 @@
+.contact {
+
+	@media (min-width: $mobile) {
+		margin-bottom: 60px;
+	}
+
+	&__container {}
+
+	&__title {}
+
+	&__content {
+		display: flex;
+		align-items: center;
+
+		@media (min-width: $mobile) {
+			justify-content: center;
+			column-gap: 40px;
+		}
+
+		@media (min-width: $tablet) {
+			column-gap: 80px;
+		}
+
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			row-gap: 75px;
+		}
+	}
+
+	&__form {
+		transform: translateX(-50%);
+		opacity: 0;
+
+		&._active-anim-skroll {
+			animation: anim-form-block-scroll 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+
+			@keyframes anim-form-block-scroll {
+				60% {
+					opacity: 0.8;
+				}
+
+				100% {
+					transform: translateX(0);
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&__info {
+		transform: translateX(50%);
+		opacity: 0;
+
+		&._active-anim-skroll {
+			animation: anim-address-block-scroll 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+
+			@keyframes anim-address-block-scroll {
+				60% {
+					opacity: 0.8;
+				}
+
+				100% {
+					transform: translateX(0);
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&__form,
+	&__info {
+		max-width: 490px;
+		width: 100%;
+	}
+
+	&__details {
+		margin-bottom: 32px;
+	}
+
+	&__detail {
+		display: flex;
+		align-items: center;
+		column-gap: 40px;
+
+		@media (max-width: $tablet) {
+			column-gap: 24px;
+		}
+
+		@media (max-width: $mobileSmall) {
+			column-gap: 16px;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 32px;
+		}
+
+		a {
+			@media (min-width: $tablet) {
+				transition: opacity 0.3s ease;
+
+				&:hover {
+					opacity: 0.7;
+				}
+			}
+		}
+	}
+
+	&__icon {
+		font-size: toRem(40);
+
+		@media (max-width: $tablet) {
+			font-size: toRem(32);
+		}
+
+		@media (max-width: $mobileSmall) {
+			font-size: toRem(28);
+		}
+	}
+
+	&__text {
+		font-size: toRem(18);
+		letter-spacing: 1.5px;
+
+		@media (max-width: $tablet) {
+			font-size: toRem(16);
+		}
+	}
+
+	&__social {
+		text-align: center;
+	}
+}
+
+.form-contact {
+	&__field {
+		position: relative;
+
+		&:not(:last-child) {
+			margin-bottom: 24px;
+		}
+
+		&_honeypot {
+			position: absolute;
+			left: -9999px;
+		}
+
+		form._load-active & {
+			display: none;
+		}
+
+		label {
+			position: absolute;
+			left: em(12, 16);
+			top: 27px;
+			transform: translateY(-50%);
+			padding: 0 em(8, 16);
+			pointer-events: none;
+
+			font-size: toRem(16);
+			letter-spacing: em(1, 16);
+			background-color: var(--secondary);
+			opacity: 0.5;
+
+			transition: top 0.2s ease,
+				left 0.2s ease,
+				opacity 0.2s ease,
+				color 0.2s ease;
+		}
+
+		input,
+		textarea {
+			width: 100%;
+			padding: em(14, 16) em(12, 16);
+			border-radius: 1rem;
+
+			color: var(--inverse);
+			letter-spacing: em(1, 16);
+			background-color: var(--secondary);
+			border: 1px solid var(--primary-opacity);
+
+			&:focus {
+				border-color: var(--accent);
+			}
+		}
+
+		textarea {
+			resize: vertical;
+			min-height: 120px;
+		}
+
+		&:has(input:not(:placeholder-shown)),
+		&:has(textarea:not(:placeholder-shown)) {
+			label {
+				top: 0;
+				opacity: 1;
+				left: em(20, 16);
+			}
+
+			input,
+			textarea {
+				border: 1px solid var(--primary);
+			}
+		}
+
+		&:focus-within {
+			label {
+				top: 0;
+				opacity: 1;
+				color: var(--accent);
+				left: em(20, 16);
+			}
+		}
+	}
+
+	&__error {
+		display: block;
+		color: var(--red);
+		letter-spacing: em(1, 14);
+		margin-top: em(10, 16);
+		margin-left: em(10, 16);
+	}
+
+	&__submit {
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+
+		display: inline-flex;
+		align-items: center;
+		column-gap: 10px;
+		padding: em(14, 16) em(20, 16);
+		padding-left: 60px;
+
+		color: var(--white);
+		font-size: toRem(16);
+		letter-spacing: em(1, 16);
+		background-color: #42446E;
+
+		border-radius: 1.2rem;
+		cursor: pointer;
+		overflow: hidden;
+
+		transition: transform 0.2s ease, background-color 0.2s ease;
+
+		form._load-active & {
+			display: none;
+		}
+
+		@media (min-width: $tablet) {
+			&:hover {
+				.form-contact__text {
+					transform: translateX(9em);
+				}
+
+				.form-contact__icon {
+					left: 50%;
+					transform: translate(-50%, -50%);
+					animation: button-send-icon-fly 0.6s ease-in-out infinite alternate;
+				}
+
+				.form-contact__icon img {
+					transform: translateX(6px) rotate(45deg) scale(1.1);
+				}
+			}
+
+			@keyframes button-send-icon-fly {
+				from {
+					transform: translate(-50%, calc(-50% + 2px));
+				}
+
+				to {
+					transform: translate(-50%, calc(-50% - 2px));
+				}
+			}
+		}
+	}
+
+	&__icon {
+		position: absolute;
+		left: em(20, 16);
+		top: 50%;
+		transform: translateY(-50%);
+
+		@media (min-width: $tablet) {
+			transition: all 0.3s ease;
+		}
+
+		img {
+			width: 22px;
+			height: 22px;
+
+			@media (min-width: $tablet) {
+				transition: transform 0.3s ease;
+			}
+		}
+	}
+
+	&__text {
+		@media (min-width: $tablet) {
+			transition: transform 0.3s ease;
+		}
+	}
+
+	&__loader {
+		display: none;
+		width: 65px;
+		padding: 9px;
+		margin: 0 auto;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background: #25b09b;
+		--loaderBG:
+			conic-gradient(#0000 10%, #000),
+			linear-gradient(#000 0 0) content-box;
+		-webkit-mask: var(--loaderBG);
+		mask: var(--loaderBG);
+		-webkit-mask-composite: source-out;
+		mask-composite: subtract;
+		animation: loader-anim 1.2s infinite linear;
+
+		form._load-active & {
+			display: block;
+		}
+
+
+		@keyframes loader-anim {
+			to {
+				transform: rotate(1turn)
+			}
+		}
+	}
+
+}
+
+.social-contact {
+	position: relative;
+	padding: 20px 0;
+
+	&::after,
+	&::before {
+		content: '';
+		position: absolute;
+		display: block;
+
+		width: 100%;
+		height: 1.8px;
+		background-color: var(--primary);
+		opacity: 0.7;
+	}
+
+	&::before {
+		bottom: 100%;
+	}
+
+	&::after {
+		bottom: 0;
+	}
+
+	&__link {
+		font-size: toRem(48);
+		display: inline-block;
+
+		@media (max-width: $tablet) {
+			font-size: toRem(44);
+		}
+
+		&:not(:last-child) {
+			margin-right: toRem(24);
+		}
+
+		@media (min-width: $tablet) {
+			transition: transform 0.3s ease;
+
+			&:hover {
+				transform: scale(1.125);
+			}
+		}
+	}
+}

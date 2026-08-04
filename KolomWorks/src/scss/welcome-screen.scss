@@ -1,0 +1,137 @@
+// =======================================================
+// = С Т И Л І   Д Л Я   А Н І М А Ц І Ї   В І Т А Н Н Я =
+// =======================================================
+
+.welcome-screen {
+	$first-part-animation-duration: 3500;
+	$delay-before-second-animation: 500;
+	$second-part-animation-duration: 1500;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 0;
+	height: 0;
+	overflow: hidden;
+
+	opacity: 0;
+	visibility: hidden;
+	z-index: -1;
+
+	background-color: var(--main-dark);
+	transition: background-color #{$second-part-animation-duration}ms ease #{$first-part-animation-duration + $delay-before-second-animation}ms;
+
+	&._welcome-anim-active {
+		width: 100vw;
+		height: 100vh;
+
+		opacity: 1;
+		visibility: visible;
+
+		z-index: 9999;
+		pointer-events: auto;
+
+		background-color: transparent;
+	}
+
+	&__text-block {}
+
+	&__title {
+		color: transparent;
+		font-size: toRem(220);
+		font-weight: 700;
+		text-transform: uppercase;
+		visibility: hidden;
+
+		background:
+			radial-gradient(0.71em at 50% 1em, #fff 99%, #0000 101%) calc(50% - 1em) 1em/2em 200% repeat-x text,
+			radial-gradient(0.71em at 50% -0.5em, #0000 99%, #fff 101%) 50% 1.5em/2em 200% repeat-x text;
+
+		background-color: var(--main-grey);
+
+		@media (max-width: 1220px) {
+			font-size: toRem(180);
+		}
+
+		@media (max-width: $tablet) {
+			font-size: 18vw;
+		}
+
+		.welcome-screen._welcome-anim-active & {
+			visibility: visible;
+
+			animation: welcome-text-wave-shift-x calc(#{$first-part-animation-duration}ms * 0.70) linear 2 alternate,
+			welcome-text-wave-fill-y #{$first-part-animation-duration}ms linear 0s 1 forwards,
+			welcome-text-grow-fade #{$second-part-animation-duration}ms cubic-bezier(0.550, 0.085, 0.680, 0.530) calc(#{$first-part-animation-duration}ms + #{$delay-before-second-animation}ms) both;
+
+			@keyframes welcome-text-wave-shift-x {
+				from {
+					background-position-x: calc(50% - 1em), 50%;
+				}
+
+				to {
+					background-position-x: 50%, calc(50% + 1em);
+				}
+			}
+
+			@keyframes welcome-text-wave-fill-y {
+				from {
+					background-position-y: 1.2em, 1.7em;
+				}
+
+				to {
+					background-position-y: -0.7em, -0.2em;
+				}
+			}
+
+			@keyframes welcome-text-grow-fade {
+				0% {
+					transform: scale(1);
+					opacity: 1;
+				}
+
+				60% {
+					opacity: 0.8;
+				}
+
+				100% {
+					transform: scale(3);
+					opacity: 0;
+					letter-spacing: 1.2em;
+				}
+			}
+		}
+	}
+
+	&__subtitle {
+		color: var(--white);
+		font-size: toRem(20);
+		text-align: right;
+
+		visibility: hidden;
+
+		@media (max-width: $mobileSmall) {
+			font-size: 4vw;
+		}
+
+		.welcome-screen._welcome-anim-active & {
+			visibility: visible;
+
+			animation: welcome-subtitle-fade-out 300ms ease-in #{$first-part-animation-duration}ms forwards;
+
+			@keyframes welcome-subtitle-fade-out {
+				from {
+					opacity: 1;
+				}
+
+				to {
+					opacity: 0;
+				}
+			}
+		}
+	}
+}

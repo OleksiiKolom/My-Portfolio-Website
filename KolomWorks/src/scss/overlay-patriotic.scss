@@ -1,0 +1,147 @@
+// =======================================================================
+// = С Т И Л І   Д Л Я   П А Т Р І О Т И Ч Н О Г О   Б Л О К У В А Н Н Я =
+// =======================================================================
+
+.overlay-patriotic {
+	$first-part-animation-duration: 2000;
+	$delay-before-second-animation: 200;
+	$second-part-animation-duration: 800;
+
+	position: fixed;
+	inset: 0;
+
+	width: 0;
+	height: 0;
+	overflow: hidden;
+
+	opacity: 0;
+	visibility: hidden;
+	z-index: -1;
+
+	&._blocked {
+		width: 100vw;
+		height: 100vh;
+
+		opacity: 1;
+		visibility: visible;
+
+		z-index: 9999;
+		pointer-events: auto;
+	}
+
+	&__half {
+		position: absolute;
+		left: 0;
+		right: 0;
+		height: 50vh;
+
+		&_top {
+			top: -50vh;
+			background-color: #005bbb;
+
+			.overlay-patriotic._blocked & {
+				animation: overlay-patriotic-flag-move-top #{$first-part-animation-duration}ms forwards;
+
+				@keyframes overlay-patriotic-flag-move-top {
+					from {
+						transform: translateY(0);
+					}
+
+					to {
+						transform: translateY(50vh);
+					}
+				}
+			}
+		}
+
+		&_bottom {
+			bottom: -50vh;
+			background-color: #ffd500;
+
+			.overlay-patriotic._blocked & {
+				animation: overlay-patriotic-flag-move-bottom #{$first-part-animation-duration}ms forwards;
+
+				@keyframes overlay-patriotic-flag-move-bottom {
+					from {
+						transform: translateY(0);
+					}
+
+					to {
+						transform: translateY(-50vh);
+					}
+				}
+			}
+		}
+	}
+
+	&__content {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	&__img {
+		width: 400px;
+		max-width: 70vw;
+		opacity: 0;
+
+		.overlay-patriotic._blocked & {
+			animation: overlay-patriotic-img-show #{$second-part-animation-duration}ms #{$first-part-animation-duration + $delay-before-second-animation}ms forwards ease-out;
+
+			@keyframes overlay-patriotic-img-show {
+				0% {
+					opacity: 0;
+					transform: scale(0.1);
+				}
+
+				60% {
+					opacity: 1;
+					transform: scale(1.15);
+				}
+
+				100% {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&__text {
+		color: var(--white);
+		font-size: toRem(48);
+		font-weight: 700;
+		text-align: center;
+		margin-top: 1.8rem;
+		padding: 0px 15px;
+		opacity: 0;
+		text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+
+		@media (max-width: $mobile) {
+			font-size: toRem(36);
+		}
+
+		.overlay-patriotic._blocked & {
+			animation: overlay-patriotic-text-show 0.5s #{$first-part-animation-duration + $delay-before-second-animation + $second-part-animation-duration }ms forwards ease-out;
+
+			@keyframes overlay-patriotic-text-show {
+				0% {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+
+				100% {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+		}
+	}
+}

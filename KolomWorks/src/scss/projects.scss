@@ -1,0 +1,306 @@
+// =======================================
+// = С Т И Л І   Д Л Я   П Р О Є К Т І В =
+// =======================================
+
+.projects {
+
+	&__container {}
+
+	&__title {}
+
+	&__subtitle {}
+
+	&__block {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		column-gap: 25px;
+		row-gap: 50px;
+
+		@media (max-width: $tablet) {
+			column-gap: 20px;
+			row-gap: 40px;
+		}
+	}
+
+	&__item {}
+}
+
+.item-projects {
+	display: flex;
+	flex-direction: column;
+
+	width: calc((100% - 50px) / 3);
+	min-height: 570px;
+	overflow: hidden;
+
+	border-radius: borderRadius(375, 570, 20);
+	background-color: var(--item-projects-bg);
+	box-shadow: 2px 2px 100px 0px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+
+	&._active-anim-skroll {
+		$animationDuration: 0.4s;
+
+		@keyframes anim-projects-left-scroll {
+			0% {
+				transform: translateX(-40%);
+			}
+
+			60% {
+				opacity: 0.8;
+			}
+
+			100% {
+				transform: translateY(0) translateX(0);
+				opacity: 1;
+			}
+		}
+
+		@keyframes anim-projects-right-scroll {
+			0% {
+				transform: translateX(40%);
+			}
+
+			60% {
+				opacity: 0.8;
+			}
+
+			100% {
+				transform: translateY(0) translateX(0);
+				opacity: 1;
+			}
+		}
+
+		@keyframes anim-projects-bottom-scroll {
+			0% {
+				transform: translateY(20%);
+			}
+
+			60% {
+				opacity: 0.8;
+			}
+
+			100% {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+
+		@mixin anim-projects-scroll-default {
+			@media (min-width: 1150px) {
+
+				// Кожен третій елемент (1, 4, 7, 10...)
+				&:nth-child(3n + 1) {
+					animation: anim-projects-left-scroll $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+				}
+
+				// Кожен другий елемент (2, 5, 8, 11...)
+				&:nth-child(3n + 2) {
+					animation: anim-projects-bottom-scroll $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+				}
+
+				// Кожен третій елемент (3, 6, 9, 12...)
+				&:nth-child(3n) {
+					animation: anim-projects-right-scroll $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+				}
+
+				// Якщо залишився один елемент (непарна кількість елементів)
+				&:nth-last-child(1):nth-child(3n + 1) {
+					animation: anim-projects-bottom-scroll $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+				}
+
+				// Якщо залишилось два елементи (парна кількість елементів)
+				&:nth-last-child(2):nth-child(3n + 1) {
+					animation: anim-projects-bottom-scroll $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+				}
+
+				// Якщо залишилось два елементи (перестраховка)
+				&:nth-last-child(1):nth-child(3n + 2) {
+					animation: anim-projects-bottom-scroll $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+				}
+			}
+		}
+
+		@mixin anim-projects-scroll-1150px {
+			@media (max-width: 1150px) {
+
+				// Непарні елементи (1, 3, 5, 7...)
+				&:nth-child(odd) {
+					animation: anim-projects-left-scroll $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+				}
+
+				// Парні елементи (2, 4, 6, 8...)
+				&:nth-child(even) {
+					animation: anim-projects-right-scroll $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+				}
+
+				// Якщо залишився один елемент (непарна кількість елементів)
+				&:nth-last-child(1):nth-child(odd) {
+					animation: anim-projects-bottom-scroll $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+				}
+			}
+		}
+
+		@mixin anim-projects-scroll-phone {
+			@media (max-width: $mobile) {
+				&:nth-child(n) {
+					animation: anim-projects-bottom-scroll $animationDuration cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+				}
+			}
+		}
+
+		@include anim-projects-scroll-default;
+		@include anim-projects-scroll-1150px;
+		@include anim-projects-scroll-phone;
+	}
+
+	html._theme-animating & {
+		transition: background-color $theme-anim-duration ease;
+	}
+
+	@media (max-width: 1150px) {
+		width: calc((100% - 50px) / 2);
+	}
+
+	@media (max-width: $mobile) {
+		width: 85%;
+		min-height: 520px;
+	}
+
+	@media (max-width: $mobileSmall) {
+		width: 100%;
+		min-height: 500px;
+	}
+
+	&__image {
+		flex: 0 0 260px;
+		overflow: hidden;
+
+		@media (max-width: $mobileSmall) {
+			flex: 0 0 240px;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: left top;
+
+			@media (min-width: $tablet) {
+				transition: transform 0.6s ease;
+
+				&:hover {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding: 22px 26px;
+	}
+
+	&__title {
+		font-size: toRem(28);
+		font-weight: 500;
+		text-align: center;
+
+		html._light-mode & {
+			color: var(--main-dark);
+		}
+
+		html._dark-mode & {
+			color: var(--accent);
+		}
+
+		&:not(:last-child) {
+			margin-bottom: em(14, 28);
+		}
+
+		@media (min-width: $tablet) {
+			transition: opacity 0.5s ease;
+
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+
+		@media (max-width: $mobile) {
+			font-size: toRem(24);
+		}
+	}
+
+	&__description {
+		flex: 1 1 auto;
+		font-weight: 300;
+		line-height: 1.4;
+
+		html._light-mode & {
+			color: var(--primary);
+		}
+
+		html._dark-mode & {
+			color: var(--accent);
+		}
+
+		&:not(:last-child) {
+			margin-bottom: em(12, 18);
+		}
+	}
+
+	&__list-technologies {
+		font-size: toRem(16);
+
+		html._light-mode & {
+			color: var(--primary);
+		}
+
+		html._dark-mode & {
+			color: var(--accent);
+		}
+
+		&:not(:last-child) {
+			margin-bottom: em(18, 18);
+		}
+	}
+
+	&__list-item {
+		display: inline-block;
+
+		font-weight: 300;
+		line-height: 1.3;
+
+		&:not(:last-child) {
+			&::after {
+				content: ',';
+			}
+		}
+	}
+
+	&__links {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__link {
+		color: var(--inverse);
+		font-size: toRem(16);
+
+		@media (min-width: $tablet) {
+			transition: opacity 0.3s ease;
+
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+
+		&::before {
+			margin-right: em(8, 16);
+		}
+	}
+}

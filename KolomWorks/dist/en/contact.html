@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+    <!-- prettier-ignore -->
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="/css/style.min.css?_v=20260419191752" />
+    <title>Сontact</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="KolomWorks" />
+    <link rel="manifest" href="/img/favicon/site.webmanifest" />
+
+    <!-- SEO -->
+    <meta name="description" content="Contact me via the contact form, email or social networks." />
+    <meta name="keywords" content="IT services Bila Tserkva, IT specialist Bila Tserkva, computer repair Bila Tserkva, laptop repair Bila Tserkva, Windows setup Bila Tserkva, website creation Bila Tserkva, web developer Bila Tserkva, system administrator Bila Tserkva, IT services Kyiv region, IT specialist Kyiv region" />
+    <link rel="canonical" href="https://kolomworks.com/en/contact.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="KolomWorks" />
+    <meta property="og:url" content="https://kolomworks.com/en/contact.html" />
+    <meta property="og:title" content="Oleksii Kolom — Contacts" />
+    <meta property="og:description" content="Contact me via the contact form, email or social networks." />
+    <meta property="og:image" content="../img/ogImage/01.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Oleksii Kolom — Contacts" />
+    <meta name="twitter:description" content="Contact me via the contact form, email or social networks." />
+    <meta name="twitter:image" content="../img/ogImage/01.png" />
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Oleksii Kolomiichenko",
+        "image": "https://kolomworks.com/img/introduction/01.jpeg",
+        "url": "https://kolomworks.com",
+        "jobTitle": "Frontend Developer & System Administrator",
+        "sameAs": ["https://github.com/OleksiiKolom", "https://www.linkedin.com/in/oleksiikolom"]
+    }
+</script>
+
+</head>
+
+    <body>
+        <div class="wrapper">
+            <header class="header _lock-padding _anim-on-scroll">
+	<div class="header__container">
+		<a href="/en" class="header__logo logo _icon-logo_k" aria-label="Logo, go to home page"></a>
+		<div class="header__menu" aria-label="Menu">
+			<nav class="header__navigation navigation">
+				<ul class="navigation__list">
+					<li class="navigation__item">
+						<a href="/en" class="navigation__link">Home</a>
+					</li>
+					<li class="navigation__item">
+						<a href="/en/about.html" class="navigation__link">About</a>
+					</li>
+					<li class="navigation__item">
+						<a href="/en/tech-stack.html" class="navigation__link">Tech Stack</a>
+					</li>
+					<li class="navigation__item">
+						<a href="/en/projects.html" class="navigation__link">Projects</a>
+					</li>
+					<li class="navigation__item">
+						<a href="/en/contact.html" class="navigation__link">Contact</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="header__social social-header" aria-label="Social media">
+				<a href="https://github.com/OleksiiKolom" class="social-header__link _icon-gitHub" target="_blank"
+					aria-label="Go to github.com"></a>
+				<a href="https://www.linkedin.com/in/oleksiikolom/" class="social-header__link _icon-linkedin"
+					target="_blank" aria-label="Go to linkedin.com"></a>
+				<a href="https://t.me/OleksiiKolom" class="social-header__link _icon-telegram" target="_blank"
+					aria-label="Go to Telegram"></a>
+				<a href="https://www.instagram.com/oleksii_kolomiichenko/" class="social-header__link _icon-instagram"
+					target="_blank" aria-label="Go to instagram.com"></a>
+			</div>
+		</div>
+		<button class="header__theme-switcher theme-switcher" aria-label="Toggle theme">
+			<div class="theme-switcher__button theme-switcher__button_dark _icon-moon"></div>
+			<div class="theme-switcher__button theme-switcher__button_light _icon-sun"></div>
+		</button>
+		<a href="/projects/Kolomiichenko_Resume.pdf" class="header__button-download" download="CV_Kolomiichenko.pdf"
+			aria-label="Download CV">Resume <span class="_icon-download"></span>
+		</a>
+		<button class="header__burger" aria-label="Open or close menu">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+	</div>
+</header>
+            <main class="page">
+                <section class="contact">
+                    <div class="contact__container">
+                        <h1 class="contact__title main-title _anim-on-scroll">Contact</h1>
+
+                        <div class="contact__content">
+                            <form class="contact__form form-contact _anim-on-scroll" action="#" method="post">
+                                <div class="form-contact__field">
+                                    <label for="contact-name">Name</label>
+                                    <input
+                                        type="text"
+                                        id="contact-name"
+                                        name="name"
+                                        autocomplete="name"
+                                        placeholder=" "
+                                        aria-required="true"
+                                        aria-describedby="error-name"
+                                    />
+                                    <span id="error-name" class="form-contact__error" aria-live="polite"></span>
+                                </div>
+
+                                <div class="form-contact__field">
+                                    <label for="contact-email">Email</label>
+                                    <input
+                                        type="email"
+                                        id="contact-email"
+                                        name="email"
+                                        autocomplete="email"
+                                        placeholder=" "
+                                        aria-required="true"
+                                        aria-describedby="error-email"
+                                    />
+                                    <span id="error-email" class="form-contact__error" aria-live="polite"></span>
+                                </div>
+
+                                <div class="form-contact__field">
+                                    <label for="contact-phone">Phone</label>
+                                    <input
+                                        type="tel"
+                                        id="contact-phone"
+                                        name="phone"
+                                        autocomplete="tel"
+                                        placeholder=" "
+                                        aria-required="true"
+                                        aria-describedby="error-phone"
+                                    />
+                                    <span id="error-phone" class="form-contact__error" aria-live="polite"></span>
+                                </div>
+
+                                <div class="form-contact__field">
+                                    <label for="contact-message">Message</label>
+                                    <textarea
+                                        id="contact-message"
+                                        name="message"
+                                        rows="6"
+                                        placeholder=" "
+                                        aria-required="true"
+                                        aria-describedby="error-message"
+                                    ></textarea>
+                                    <span id="error-message" class="form-contact__error" aria-live="polite"></span>
+                                </div>
+
+                                <div class="form-contact__field form-contact__field_honeypot" aria-hidden="true">
+                                    <input
+                                        type="text"
+                                        id="contact-honeypot"
+                                        name="honeypot"
+                                        autocomplete="off"
+                                        tabindex="-1"
+                                        aria-hidden="true"
+                                    />
+                                </div>
+
+                                <button type="submit" class="form-contact__submit" aria-label="Send message">
+                                    <span class="form-contact__icon" aria-hidden="true">
+                                        <img src="../img/svg/send.svg" alt="Icon send" />
+                                    </span>
+
+                                    <span class="form-contact__text">Send message</span>
+                                </button>
+
+                                <div class="form-contact__loader"></div>
+                            </form>
+
+                            <address class="contact__info _anim-on-scroll">
+                                <ul class="contact__details">
+                                    <li class="contact__detail">
+                                        <span class="contact__icon _icon-location" aria-hidden="true"></span>
+                                        <span class="contact__text">Bila Tserkva, Ukraine</span>
+                                    </li>
+
+                                    <li class="contact__detail">
+                                        <span class="contact__icon _icon-phone" aria-hidden="true"></span>
+                                        <a href="tel:+380508431220" class="contact__text"> +380 50 843 1220 </a>
+                                    </li>
+
+                                    <li class="contact__detail">
+                                        <span class="contact__icon _icon-envelope" aria-hidden="true"></span>
+                                        <a href="mailto:aleksey2002kolomiychenko@gmail.com" class="contact__text"
+                                            >aleksey2002kolomiychenko@gmail.com</a
+                                        >
+                                    </li>
+                                </ul>
+
+                                <div class="contact__social social-contact" aria-label="Social media">
+                                    <a
+                                        href="https://github.com/OleksiiKolom"
+                                        class="social-contact__link _icon-gitHub"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Go to github.com"
+                                    ></a>
+                                    <a
+                                        href="https://www.linkedin.com/in/oleksiikolom/"
+                                        class="social-contact__link _icon-linkedin"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Go to linkedin.com"
+                                    ></a>
+                                    <a
+                                        href="https://t.me/OleksiiKolom"
+                                        class="social-contact__link _icon-telegram"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Go to Telegram"
+                                    ></a>
+                                    <a
+                                        href="https://www.instagram.com/oleksii_kolomiichenko/"
+                                        class="social-contact__link _icon-instagram"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Go to instagram.com"
+                                    ></a>
+                                </div>
+                            </address>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer class="footer _anim-on-scroll">
+	<div class="footer__container">
+		<div class="footer__top">
+			<a href="/en" class="footer__logo logo _icon-logo_k" aria-label="Logo, go to home page"></a>
+			<a href="tel:+380508431220" class="footer__phone">+380 50 843 1220</a>
+			<a href="mailto:aleksey2002kolomiychenko@gmail.com" class="footer__email">
+				aleksey2002kolomiychenko@gmail.com
+			</a>
+			<div class="footer__social social-footer" aria-label="Social media">
+				<a href="https://github.com/OleksiiKolom" class="social-footer__link _icon-gitHub" target="_blank"
+					aria-label="Go to github.com"></a>
+				<a href="https://www.linkedin.com/in/oleksiikolom/" class="social-footer__link _icon-linkedin"
+					target="_blank" aria-label="Go to linkedin.com"></a>
+				<a href="https://t.me/OleksiiKolom" class="social-footer__link _icon-telegram" target="_blank"
+					aria-label="Go to Telegram"></a>
+				<a href="https://www.instagram.com/oleksii_kolomiichenko/" class="social-footer__link _icon-instagram"
+					target="_blank" aria-label="Go to instagram.com"></a>
+			</div>
+			<a href="popup-lang-switch" class="footer__button-language language-button _open-popup-button">
+				<span aria-hidden="true" class="language-button__circle">
+					<span class="language-button__img"><img src="../img/flags/Flag-United-Kingdom.png"
+							alt="Flag of United Kingdom"></span>
+				</span>
+				<span class="language-button__text">Change language</span>
+			</a>
+		</div>
+
+		<div class="footer__line-decor" aria-hidden="true"></div>
+		<div class="footer__bottom">
+			<nav class="footer__navigation navigation-footer" aria-label="Menu">
+				<ul class="navigation-footer__list">
+					<li class="navigation-footer__item">
+						<a href="/en" class="navigation-footer__link">Home</a>
+					</li>
+					<li class="navigation-footer__item">
+						<a href="/en/about.html" class="navigation-footer__link">About</a>
+					</li>
+					<li class="navigation-footer__item">
+						<a href="/en/tech-stack.html" class="navigation-footer__link">Tech Stack</a>
+					</li>
+					<li class="navigation-footer__item">
+						<a href="/en/projects.html" class="navigation-footer__link">Projects</a>
+					</li>
+					<li class="navigation-footer__item">
+						<a href="/en/contact.html" class="navigation-footer__link">Contact</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="footer__designer-by">Development by <span class="text-gradient">O.Kolomiichenko</span></div>
+		</div>
+	</div>
+</footer>
+            <div id="particles-js" aria-hidden="true"></div>
+        </div>
+        <div id="popup-lang-switch" class="popup popup-language">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close popup-close _close-popup-button">
+				<label class="popup-close__text">close</label>
+			</button>
+			<h3 class="popup-language__title main-title main-title_non-anim-scroll">Change language</h3>
+			<div class="popup-language__block-buttons">
+				<button type="button" class="popup-language__button button-lang-choose" data-lang="en">
+					<span class="button-lang-choose__img">
+						<picture><source srcset="../img/flags/Flag-United-Kingdom.webp" type="image/webp"><img src="../img/flags/Flag-United-Kingdom.png" alt="Flag of United Kingdom"></picture>
+					</span>
+					<span class="button-lang-choose__text">English</span>
+				</button>
+				<button type="button" class="popup-language__button button-lang-choose" data-lang="ua">
+					<span class="button-lang-choose__img">
+						<picture><source srcset="../img/flags/Flag-Ukraine.webp" type="image/webp"><img src="../img/flags/Flag-Ukraine.png" alt="Flag of Ukraine"></picture>
+					</span>
+					<span class="button-lang-choose__text">Ukrainian</span>
+				</button>
+				<button type="button" class="popup-language__button button-lang-choose" data-lang="ru">
+					<span class="button-lang-choose__img">
+						<picture><source srcset="../img/flags/Flag-Russian.webp" type="image/webp"><img src="../img/flags/Flag-Russian.png" alt="Flag of Free Russia"></picture>
+					</span>
+					<span class="button-lang-choose__text">Russian</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div> <div id="popup-ru-aggression" class="popup popup-aggression _no-close-popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<h3 class="popup-aggression__title main-title main-title_non-anim-scroll">
+				Для доступа к русскоязычной версии сайта подтвердите:
+			</h3>
+			<p class="popup-aggression__text">
+				Вы признаёте, что Российская Федерация развязала вооружённую агрессию
+				против независимой Украины, нарушив
+				международные договорённости и совершая военные преступления против украинского народа, к которому
+				относится автор этого сайта?
+			</p>
+			<div class="popup-aggression__block-buttons">
+				<button class="popup-aggression__button" data-ru-aggression="yes">Да, подтверждаю</button>
+				<button class="popup-aggression__button" data-ru-aggression="no">Нет, отрицаю</button>
+			</div>
+		</div>
+	</div>
+</div>
+        <div class="welcome-screen">
+	<div class="welcome-screen__text-block">
+		<h2 class="welcome-screen__title">Welcome</h2>
+		<div class="welcome-screen__subtitle">Loading...</div>
+	</div>
+</div> <div class="overlay-patriotic">
+	<div class="overlay-patriotic__half overlay-patriotic__half_top" aria-hidden="true"></div>
+	<div class="overlay-patriotic__half overlay-patriotic__half_bottom" aria-hidden="true"></div>
+
+	<div class="overlay-patriotic__content">
+		<div class="overlay-patriotic__img">
+			<img src="../img/overlay-patriotic/tryzub.svg" alt="Герб Украини" />
+		</div>
+		<p class="overlay-patriotic__text">Доступ заблокирован!</p>
+	</div>
+</div> <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js?_v=20260419191752"></script>
+<script src="/js/app.min.js?_v=20260419191752"></script>
+    </body>
+</html>
