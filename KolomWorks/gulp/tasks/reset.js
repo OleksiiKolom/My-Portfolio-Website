@@ -1,6 +1,4 @@
-import { deleteAsync } from 'del'; // Видалення файлів
-
-// Завдання для видалення файлів
+// Завдання для очищення папки збірки
 export const reset = () => {
-	return deleteAsync(['dist'])
-}
+	return app.plugins.deleteAsync([app.path.clean]);
+};

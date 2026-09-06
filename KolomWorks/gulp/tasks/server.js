@@ -1,16 +1,13 @@
-// Завдання для запуску локального сервера
-export const server = (done) => {
-    app.plugins.browsersync.init({
+// Завдання для запуску локального сервера BrowserSync
+export const server = done => {
+	app.plugins.browsersync.init({
+		server: {
+			baseDir: app.path.build.html,
+		},
 
-        // Налаштування сервера
-        server: {
-            baseDir: `${app.path.build.html}`
-        },
-
-        // Вимкнення сповіщень
-        notify: false,
-
-        // Порт сервера
-        port: 3000
-    });
-}
+		notify: false, // Вимкнення сповіщень
+		port: 3000, // Порт сервера
+	},
+		done
+	);
+};

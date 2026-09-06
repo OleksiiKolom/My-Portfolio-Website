@@ -1,24 +1,28 @@
-import { deleteAsync } from 'del'; // Видалення файлів
-import zipPlugin from "gulp-zip"; // Створення архіву
+import zipPlugin from 'gulp-zip'; // Створення архіву
 
 // Завдання для створення ZIP-архіву
-export const zip = () => {
+export const zip = async () => {
+	// Видалення вже існуючого ZIP-архіву
+	await app.plugins.deleteAsync(`./${app.path.rootFolder}.zip`);
 
-    // Видали вже існуючий zip-архів
-    deleteAsync(`./${app.path.rootFolder}.zip`);
-	return app.gulp.src(`${app.path.buildFolder}/**/*.*`, {})
-		
-        // Обробка і виведення помилок в консоль
-        .pipe(app.plugins.plumber(
-			app.plugins.notify.onError({
-				title: "ZIP",
-				message: "Error: <%= error.message %>"
-			}))
-		)
+	return (
+		app.gulp
+			.src(`${app.path.buildFolder}/**/*.*`)
 
-        // Створити архів 
-        .pipe(zipPlugin(`${app.path.rootFolder}.zip`))
+			// Обробка і виведення помилок в консоль
+			.pipe(
+				app.plugins.plumber(
+					app.plugins.notify.onError({
+						title: 'ZIP',
+						message: 'Error: <%= error.message %>',
+					})
+				)
+			)
 
-        // Зберегти ZIP-архів
-        .pipe(app.gulp.dest('./'));
-}
+			// Створити архів
+			.pipe(zipPlugin(`${app.path.rootFolder}.zip`))
+
+			// Зберегти ZIP-архів
+			.pipe(app.gulp.dest('./'))
+	);
+};

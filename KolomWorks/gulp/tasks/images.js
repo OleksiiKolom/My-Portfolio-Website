@@ -1,75 +1,99 @@
-import webp from "gulp-webp"; // Конвертування всіх растрових зображень у формат WebP
-import imagemin from "gulp-imagemin"; // Оптимізація (стиснення) зображень
+import webp from 'gulp-webp'; 			// Конвертування растрових зображень у WebP
+import imagemin from 'gulp-imagemin'; 	// Оптимізація зображень
 
-// Завдання для обробки зображень
-export const images = () => {
-	return app.gulp.src(app.path.src.images)
+// Конвертування растрових зображень у WebP
+const convertToWebp = () => {
+	return app.gulp
+		// Читання растрових зображень з отриманого шляху
+		.src(app.path.src.images, {
+			encoding: false, // Читання файлів у двійковому режимі
+			removeBOM: false // Вимкнення видалення BOM (перші байти файлу, які можуть містити інформацію про кодування)
+		})
 
-		// Обробка і виведення помилок в консоль
+		// Обробка помилок під час виконання завдання
 		.pipe(app.plugins.plumber(
 			app.plugins.notify.onError({
-				title: "IMAGES",
-				message: "Error: <%= error.message %>"
-			}))
-		)
+				title: 'WEBP',
+				message: 'Error: <%= error.message %>',
+			})
+		))
+
+		// Якщо режим збірки — обрати лише нові або змінені зображення .webp
+		.pipe(app.plugins.if(app.isBuild,
+			app.plugins.newer({
+				dest: app.path.build.images,
+				ext: '.webp'
+			})
+		))
+
+		// Якщо режим збірки — конвертувати зображення у WebP
+		.pipe(app.plugins.if(app.isBuild, webp()))
+
+		// Якщо режим збірки — зберегти конвертовані зображення у WebP до папки build
+		.pipe(app.plugins.if(app.isBuild,
+			app.gulp.dest(app.path.build.images)
+		));
+};
+
+// Оптимізація оригінальних растрових зображень
+const optimizeImages = () => {
+	return app.gulp
+		// Читання растрових зображень з отриманого шляху
+		.src(app.path.src.images, {
+			encoding: false, // Читання файлів у двійковому режимі
+			removeBOM: false // Вимкнення видалення BOM (перші байти файлу, які можуть містити інформацію про кодування)
+		})
+
+		// Обробка помилок під час виконання завдання
+		.pipe(app.plugins.plumber(
+			app.plugins.notify.onError({
+				title: 'IMAGES',
+				message: 'Error: <%= error.message %>',
+			})
+		))
 
 		// Фільтр: обрати лише нові або змінені зображення
-        .pipe(app.plugins.newer(app.path.build.images))
+		.pipe(app.plugins.newer(app.path.build.images))
 
-		// Якщо режим збірки, то створити зображення у форматі WebP
-		.pipe(
-			app.plugins.if(
-				app.isBuild,
-				webp()
-			)
-		)
+		// Якщо режим збірки — оптимізувати зображення
+		.pipe(app.plugins.if(app.isBuild, imagemin()))
 
-		// Якщо режим збірки, зберігти зображення WebP
-		.pipe(
-			app.plugins.if(
-				app.isBuild,
-				app.gulp.dest(app.path.build.images)
-			)
-		)
+		// Зберегти зображення
+		.pipe(app.gulp.dest(app.path.build.images));
+};
 
-		// Якщо режим збірки, завантажити початкові зображення знову
-        .pipe(
-			app.plugins.if(
-				app.isBuild,
-				app.gulp.src(app.path.src.images)
-			)
-		)
+// Створення потоку для обробки SVG
+const processSvg = () => {
+	return app.gulp
+		// Читання SVG-файлів з отриманого шляху
+		.src(app.path.src.svg)
 
-		// Якщо режим збірки, фільтр: обрати лише нові або змінені файли
-		.pipe(
-			app.plugins.if(
-				app.isBuild,
-				app.plugins.newer(app.path.build.images)
-			)
-		)
+		// Обробка помилок під час виконання завдання
+		.pipe(app.plugins.plumber(
+			app.plugins.notify.onError({
+				title: 'SVG',
+				message: 'Error: <%= error.message %>',
+			})
+		))
 
-		// Якщо режим збірки, то оптимізувати зображення
-        .pipe(
-			app.plugins.if(
-				app.isBuild,
-				imagemin({
-					progressive: true,
-					svgoPlugins: [{ removeViewBox: false }],
-					interlaced: true,
-					optimizationLevel: 3 // 0 to 7
-				})
-			)
-		)
+		// Фільтр: обрати лише нові або змінені SVG-файли
+		.pipe(app.plugins.newer(app.path.build.images))
 
-		// Зберігти зображення
-        .pipe(app.gulp.dest(app.path.build.images))
+		// Якщо режим збірки — оптимізувати SVG-файли
+		.pipe(app.plugins.if(app.isBuild, imagemin()))
 
-		// Завантажити зображення SVG
-        .pipe(app.gulp.src(app.path.src.svg))
+		// Зберегти оброблені SVG-файли до папки build
+		.pipe(app.gulp.dest(app.path.build.images));
+};
 
-		// Зберігти зображення SVG
-        .pipe(app.gulp.dest(app.path.build.images))
+// Завдання для обробки растрових зображень
+const processImages = done => {
+	// Виконуємо обробку зображень паралельно: оптимізацію та конвертацію у WebP
+	return app.gulp.parallel(optimizeImages, convertToWebp)(done);
+};
 
-		// Оновити браузер
-		.pipe(app.plugins.browsersync.stream());
-}
+// Завдання для обробки зображень
+export const images = done => {
+	// Виконуємо обробку зображень растрових зображень та SVG-зображень паралельно
+	return app.gulp.parallel(processImages, processSvg)(done);
+};

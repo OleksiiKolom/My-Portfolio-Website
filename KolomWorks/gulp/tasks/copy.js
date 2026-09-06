@@ -1,31 +1,20 @@
-/*// Завдання для копіювання файлів
+// Завдання для копіювання загальних файлів
 export const copy = () => {
-	return app.gulp.src(app.path.src.files)
+	return app.gulp
+		// Читання загальних файлів з отриманого шляху
+		.src(app.path.src.files, {
+			encoding: false, // Читання файлів у двійковому режимі
+			removeBOM: false // Вимкнення видалення BOM (перші байти файлу, які можуть містити інформацію про кодування)
+		})
 
-		// Копіювати папку files у вихідну папку
-		.pipe(app.gulp.dest(app.path.build.files))
-}*/
+		// Обробка помилок під час виконання завдання
+		.pipe(app.plugins.plumber(
+			app.plugins.notify.onError({
+				title: 'Copy',
+				message: 'Error: <%= error.message %>',
+			})
+		))
 
-import merge from 'merge-stream';
-
-export const copy = () => {
-	// Створюємо завдання для кожної мови
-	const copyTasks = ['en', 'ua', 'ru'].map((language) => {
-		const srcPath = app.path.src[language];
-		const destPath = app.path.build[language];
-
-		return app.gulp.src(srcPath)
-			.pipe(app.gulp.dest(destPath));
-	});
-
-	// Завдання для копіювання загальних файлів
-	const commonFilesTask = app.gulp.src(app.path.src.files)
+		// Збереження загальних файлів до папки build
 		.pipe(app.gulp.dest(app.path.build.files));
-
-	// Завдання для копіювання статичних файлів js
-	const staticJsTask = app.gulp.src(app.path.src.staticJs)
-		.pipe(app.gulp.dest(app.path.build.js));
-
-	// Об'єднуємо всі завдання в одне
-	return merge(commonFilesTask, staticJsTask, ...copyTasks);
 };
