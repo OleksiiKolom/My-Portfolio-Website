@@ -2,16 +2,18 @@ import * as sassPlugin from 'sass'; 								// Плагін для компіл�
 import gulpSass from 'gulp-sass'; 									// Плагін для компіляції SCSS у CSS
 import postcss from 'gulp-postcss'; 								// Плагін для роботи з PostCSS
 import autoprefixer from 'autoprefixer'; 							// Додавання префіксів для сумісності з різними браузерами
-import rename from 'gulp-rename'; 									// Перейменування .css у .min.css
-import cleanCss from 'gulp-clean-css'; 								// Стиск CSS-файлу
-import webpcss from 'gulp-webpcss'; 								// Виведення WEBP-зображень
 import groupCssMediaQueries from 'gulp-group-css-media-queries'; 	// Групування media-запитів
+import webpcss from 'gulp-webpcss'; 								// Виведення WEBP-зображень
+import cleanCss from 'gulp-clean-css'; 								// Стиск CSS-файлу
+import rename from 'gulp-rename'; 									// Перейменування .css у .min.css
 
+// Ініціалізація плагіна для компіляції SCSS у CSS
 const sass = gulpSass(sassPlugin);
 
-// Завдання для обробки SCSS
+// Експортуємо завдання для обробки SCSS
 export const scss = () => {
-	return (app.gulp
+	return app.gulp
+
 		// Читання основного SCSS-файлу з отриманого шляху
 		.src(app.path.src.scss, { sourcemaps: app.isDev })
 
@@ -19,7 +21,7 @@ export const scss = () => {
 		.pipe(app.plugins.plumber(
 			app.plugins.notify.onError({
 				title: 'SCSS',
-				message: 'Error: <%= error.message %>',
+				message: 'Error: <%= error.message %>'
 			})
 		))
 
@@ -29,27 +31,27 @@ export const scss = () => {
 		// Заміна шляхів до зображень
 		.pipe(app.plugins.replace(/@img\//g, '../img/'))
 
-		// Додавання префіксів для сумісності з різними браузерами під час збірки
+		// Якщо режим збірки — додати префікси для сумісності з різними браузерами під час збірки
 		.pipe(app.plugins.if(app.isBuild, postcss([
 			autoprefixer({
 				grid: true,
-				overrideBrowserslist: ['last 3 versions'],
+				overrideBrowserslist: ['last 3 versions']
 			}),
 		])))
 
-		// Групування media-запитів під час збірки
+		// Якщо режим збірки — згрупувати media-запити
 		.pipe(app.plugins.if(app.isBuild, groupCssMediaQueries()))
 
-		// Виведення WEBP-зображень у CSS під час збірки
+		// Якщо режим збірки — вивести WEBP-зображення
 		.pipe(app.plugins.if(app.isBuild, webpcss({
 			webpClass: '._webp',
-			noWebpClass: '._no-webp',
+			noWebpClass: '._no-webp'
 		})))
 
 		// Зберігання звичайного CSS-файлу
 		.pipe(app.gulp.dest(app.path.build.css))
 
-		// Стиск CSS під час збірки
+		// Якщо режим збірки — стиснути CSS-файл
 		.pipe(app.plugins.if(app.isBuild, cleanCss()))
 
 		// Перейменування у .min.css
@@ -58,7 +60,6 @@ export const scss = () => {
 		// Зберігання фінального CSS-файлу
 		.pipe(app.gulp.dest(app.path.build.css))
 
-		// Оновлення браузера
-		.pipe(app.plugins.browsersync.stream())
-	);
+		// Якщо режим розробки — оновити браузер після обробки
+		.pipe(app.plugins.if(app.isDev, app.plugins.browsersync.stream()));
 };

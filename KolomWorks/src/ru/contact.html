@@ -1,159 +1,159 @@
 <!doctype html>
 <html lang="ru">
-    <!-- prettier-ignore -->
-    @@include('../html/_head-ru.htm', { 
+	<!-- prettier-ignore -->
+	@@include('../html/_head-ru.htm', { 
 		"title": "Контакты", 
 		"description": "Свяжитесь со мной через контактную форму, email или социальные сети.", 
 		"keywords": "IT услуги Белая Церковь, IT специалист Белая Церковь, ремонт компьютеров Белая Церковь, ремонт ноутбуков Белая Церковь, настройка Windows Белая Церковь, создание сайтов Белая Церковь, веб разработчик Белая Церковь, системный администратор Белая Церковь, IT услуги Киевская область, IT специалист Киевская область", 
 		"url": "https://kolomworks.com/ru/contact.html", 
 		"ogTitle": "Алексей Коломийченко — контакты", 
 		"ogImage": "../img/ogImage/01.png" })
-    <body>
-        <div class="wrapper">
-            @@include('../html/_header-ru.htm',{})
-            <main class="page">
-                <section class="contact">
-                    <div class="contact__container">
-                        <h1 class="contact__title main-title _anim-on-scroll">Контакты</h1>
+	<body>
+		<div class="wrapper">
+			@@include('../html/_header-ru.htm',{})
+			<main class="page">
+				<section class="contact">
+					<div class="contact__container">
+						<h1 class="contact__title main-title _anim-on-scroll">Контакты</h1>
 
-                        <div class="contact__content">
-                            <form class="contact__form form-contact _anim-on-scroll" action="#" method="post">
-                                <div class="form-contact__field">
-                                    <label for="contact-name">Имя</label>
-                                    <input
-                                        type="text"
-                                        id="contact-name"
-                                        name="name"
-                                        autocomplete="name"
-                                        placeholder=" "
-                                        aria-required="true"
-                                        aria-describedby="error-name"
-                                    />
-                                    <span id="error-name" class="form-contact__error" aria-live="polite"></span>
-                                </div>
+						<div class="contact__content">
+							<form class="contact__form form-contact _anim-on-scroll" action="#" method="post">
+								<div class="form-contact__field">
+									<label for="contact-name">Имя</label>
+									<input
+										type="text"
+										id="contact-name"
+										name="name"
+										autocomplete="name"
+										placeholder=" "
+										aria-required="true"
+										aria-describedby="error-name"
+									/>
+									<span id="error-name" class="form-contact__error" aria-live="polite"></span>
+								</div>
 
-                                <div class="form-contact__field">
-                                    <label for="contact-email">Email</label>
-                                    <input
-                                        type="email"
-                                        id="contact-email"
-                                        name="email"
-                                        autocomplete="email"
-                                        placeholder=" "
-                                        aria-required="true"
-                                        aria-describedby="error-email"
-                                    />
-                                    <span id="error-email" class="form-contact__error" aria-live="polite"></span>
-                                </div>
+								<div class="form-contact__field">
+									<label for="contact-email">Email</label>
+									<input
+										type="email"
+										id="contact-email"
+										name="email"
+										autocomplete="email"
+										placeholder=" "
+										aria-required="true"
+										aria-describedby="error-email"
+									/>
+									<span id="error-email" class="form-contact__error" aria-live="polite"></span>
+								</div>
 
-                                <div class="form-contact__field">
-                                    <label for="contact-phone">Телефон</label>
-                                    <input
-                                        type="tel"
-                                        id="contact-phone"
-                                        name="phone"
-                                        autocomplete="tel"
-                                        placeholder=" "
-                                        aria-required="true"
-                                        aria-describedby="error-phone"
-                                    />
-                                    <span id="error-phone" class="form-contact__error" aria-live="polite"></span>
-                                </div>
+								<div class="form-contact__field">
+									<label for="contact-phone">Телефон</label>
+									<input
+										type="tel"
+										id="contact-phone"
+										name="phone"
+										autocomplete="tel"
+										placeholder=" "
+										aria-required="true"
+										aria-describedby="error-phone"
+									/>
+									<span id="error-phone" class="form-contact__error" aria-live="polite"></span>
+								</div>
 
-                                <div class="form-contact__field">
-                                    <label for="contact-message">Сообщение</label>
-                                    <textarea
-                                        id="contact-message"
-                                        name="message"
-                                        rows="6"
-                                        placeholder=" "
-                                        aria-required="true"
-                                        aria-describedby="error-message"
-                                    ></textarea>
-                                    <span id="error-message" class="form-contact__error" aria-live="polite"></span>
-                                </div>
+								<div class="form-contact__field">
+									<label for="contact-message">Сообщение</label>
+									<textarea
+										id="contact-message"
+										name="message"
+										rows="6"
+										placeholder=" "
+										aria-required="true"
+										aria-describedby="error-message"
+									></textarea>
+									<span id="error-message" class="form-contact__error" aria-live="polite"></span>
+								</div>
 
-                                <div class="form-contact__field form-contact__field_honeypot" aria-hidden="true">
-                                    <input
-                                        type="text"
-                                        id="contact-honeypot"
-                                        name="honeypot"
-                                        autocomplete="off"
-                                        tabindex="-1"
-                                        aria-hidden="true"
-                                    />
-                                </div>
+								<div class="form-contact__field form-contact__field_honeypot" aria-hidden="true">
+									<input
+										type="text"
+										id="contact-honeypot"
+										name="honeypot"
+										autocomplete="off"
+										tabindex="-1"
+										aria-hidden="true"
+									/>
+								</div>
 
-                                <button type="submit" class="form-contact__submit" aria-label="Отправить сообщение">
-                                    <span class="form-contact__icon" aria-hidden="true">
-                                        <img src="../img/svg/send.svg" alt="Иконка отправки" />
-                                    </span>
+								<button type="submit" class="form-contact__submit" aria-label="Отправить сообщение">
+									<span class="form-contact__icon" aria-hidden="true">
+										<img src="../img/svg/send.svg" alt="Иконка отправки" />
+									</span>
 
-                                    <span class="form-contact__text">Отправить</span>
-                                </button>
+									<span class="form-contact__text">Отправить</span>
+								</button>
 
-                                <div class="form-contact__loader"></div>
-                            </form>
+								<div class="form-contact__loader"></div>
+							</form>
 
-                            <address class="contact__info _anim-on-scroll">
-                                <ul class="contact__details">
-                                    <li class="contact__detail">
-                                        <span class="contact__icon _icon-location" aria-hidden="true"></span>
-                                        <span class="contact__text">Белая Церковь, Украина</span>
-                                    </li>
+							<address class="contact__info _anim-on-scroll">
+								<ul class="contact__details">
+									<li class="contact__detail">
+										<span class="contact__icon _icon-location" aria-hidden="true"></span>
+										<span class="contact__text">Белая Церковь, Украина</span>
+									</li>
 
-                                    <li class="contact__detail">
-                                        <span class="contact__icon _icon-phone" aria-hidden="true"></span>
-                                        <a href="tel:+380508431220" class="contact__text"> +380 50 843 1220 </a>
-                                    </li>
+									<li class="contact__detail">
+										<span class="contact__icon _icon-phone" aria-hidden="true"></span>
+										<a href="tel:+380508431220" class="contact__text"> +380 50 843 1220 </a>
+									</li>
 
-                                    <li class="contact__detail">
-                                        <span class="contact__icon _icon-envelope" aria-hidden="true"></span>
-                                        <a href="mailto:aleksey2002kolomiychenko@gmail.com" class="contact__text"
-                                            >aleksey2002kolomiychenko@gmail.com</a
-                                        >
-                                    </li>
-                                </ul>
+									<li class="contact__detail">
+										<span class="contact__icon _icon-envelope" aria-hidden="true"></span>
+										<a href="mailto:aleksey2002kolomiychenko@gmail.com" class="contact__text"
+											>aleksey2002kolomiychenko@gmail.com</a
+										>
+									</li>
+								</ul>
 
-                                <div class="contact__social social-contact" aria-label="Социальные сети">
-                                    <a
-                                        href="https://github.com/OleksiiKolom"
-                                        class="social-contact__link _icon-gitHub"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="Перейти на github.com"
-                                    ></a>
-                                    <a
-                                        href="https://www.linkedin.com/in/oleksiikolom/"
-                                        class="social-contact__link _icon-linkedin"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="Перейти на linkedin.com"
-                                    ></a>
-                                    <a
-                                        href="https://t.me/OleksiiKolom"
-                                        class="social-contact__link _icon-telegram"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="Перейти в Telegram"
-                                    ></a>
-                                    <a
-                                        href="https://www.instagram.com/oleksii_kolomiichenko/"
-                                        class="social-contact__link _icon-instagram"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="Перейти в instagram.com"
-                                    ></a>
-                                </div>
-                            </address>
-                        </div>
-                    </div>
-                </section>
-            </main>
-            @@include('../html/_footer-ru.htm',{})
-            <div id="particles-js" aria-hidden="true"></div>
-        </div>
-        @@include('../html/_popup-language-ru.htm',{}) @@include('../html/_popup-ru-aggression.htm',{})
-        @@include('../html/_welcome-screen.htm',{}) @@include('../html/_overlay-patriotic.htm',{}) @@include('../html/_js.htm',{})
-    </body>
+								<div class="contact__social social-contact" aria-label="Социальные сети">
+									<a
+										href="https://github.com/OleksiiKolom"
+										class="social-contact__link _icon-gitHub"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Перейти на github.com"
+									></a>
+									<a
+										href="https://www.linkedin.com/in/oleksiikolom/"
+										class="social-contact__link _icon-linkedin"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Перейти на linkedin.com"
+									></a>
+									<a
+										href="https://t.me/OleksiiKolom"
+										class="social-contact__link _icon-telegram"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Перейти в Telegram"
+									></a>
+									<a
+										href="https://www.instagram.com/oleksii_kolomiichenko/"
+										class="social-contact__link _icon-instagram"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Перейти в instagram.com"
+									></a>
+								</div>
+							</address>
+						</div>
+					</div>
+				</section>
+			</main>
+			@@include('../html/_footer-ru.htm',{})
+			<div id="particles-js" aria-hidden="true"></div>
+		</div>
+		@@include('../html/_popup-language-ru.htm',{}) @@include('../html/_popup-ru-aggression.htm',{})
+		@@include('../html/_welcome-screen.htm',{}) @@include('../html/_overlay-patriotic.htm',{}) @@include('../html/_js.htm',{})
+	</body>
 </html>

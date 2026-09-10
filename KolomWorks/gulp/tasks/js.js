@@ -3,6 +3,7 @@ import webpack from 'webpack-stream'; // Модуль webpack для збірк�
 // Обробка основного JavaScript
 const appJS = () => {
 	return app.gulp
+
 		// Читання основного JS-файлу з отриманого шляху
 		.src(app.path.src.js, { sourcemaps: app.isDev })
 
@@ -29,6 +30,7 @@ const appJS = () => {
 // Копіювання JavaScript-бібліотек і плагінів
 const libsJS = () => {
 	return app.gulp
+
 		// Читання JS-бібліотек з отриманного шляху
 		.src(app.path.src.jsLibs, {
 			encoding: false, // Читання файлів у двійковому режимі
@@ -47,8 +49,16 @@ const libsJS = () => {
 		.pipe(app.gulp.dest(app.path.build.jsLibs));
 };
 
-// Завдання для обробки JS-файлів
+// Експортуємо завдання для обробки JS-файлів
 export const js = done => {
 	// Виконуємо обробку основного JS та копіювання бібліотек паралельно
-	return app.gulp.parallel(appJS, libsJS)(done);
+	app.gulp.parallel(appJS, libsJS)(() => {
+
+		// Якщо режим розробки — оновити браузер після обробки
+		if (app.isDev) {
+			app.plugins.browsersync.reload();
+		}
+
+		done();
+	});
 };

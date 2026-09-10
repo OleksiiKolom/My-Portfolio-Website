@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ua">
-    <!-- prettier-ignore -->
-    @@include('../html/_head-ua.htm', { 
+	<!-- prettier-ignore -->
+	@@include('../html/_head-ua.htm', { 
 		"title": "Домашня сторінка", 
 		"description": "Системний адміністратор та Frontend розробник. Досвід роботи з Windows, Linux, веб-розробкою та IT-інфраструктурою. Проєкти, навички та контакти.", 
 		"keywords": "системний адміністратор, frontend розробник, веб-розробка, створення сайтів, розробка сайтів, портфоліо розробника, IT спеціаліст, налаштування Windows, адміністрування Windows, адміністрування Linux, IT послуги, ремонт комп'ютерів, ремонт ноутбуків, налаштування комп'ютерів, Біла Церква, Київська область", 
@@ -9,51 +9,37 @@
 		"ogTitle": "Олексій Коломійченко — системний адміністратор та Frontend розробник", 
 		"ogImage": "../img/ogImage/01.png" })
 
-    <body>
-        <div class="wrapper">
-            @@include('../html/_header-ua.htm',{})
-            <main class="page">
-                <section class="introduction">
-                    <div class="introduction__container">
-                        <div class="introduction__text-block _anim-on-scroll">
-                            <h1 class="introduction__title">
-                                Вітаю &#128075;,<br />
-                                Мене звуть<br />
-                                <span class="text-gradient">Олексій</span><br />
-                            </h1>
-                            <div class="introduction__proffession">
-                                Я <span class="introduction__typing"></span>
-                            </div>
-                            <ul class="introduction__list">
-                                <li class="introduction__item">
-                                    веб-розробник
-                                </li>
-                                <li class="introduction__item">
-                                    IT-адміністратор
-                                </li>
-                                <li class="introduction__item">
-                                    комп’ютерний інженер
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="introduction__image _anim-on-scroll">
-                            <img
-                                src="../img/introduction/01.jpeg"
-                                alt="Фото автора"
-                            />
-                        </div>
-                    </div>
-                </section>
-                @@include('../html/_tech-stack-ua.htm', {"titleElement": "h2"})
-                @@include('../html/_projects-ua.htm', {"titleElement": "h2"})
-            </main>
-            @@include('../html/_footer-ua.htm',{})
-            <div id="particles-js"></div>
-        </div>
-        @@include('../html/_popup-language-ua.htm',{})
-        @@include('../html/_popup-ru-aggression.htm',{})
-        @@include('../html/_welcome-screen.htm',{})
-        @@include('../html/_overlay-patriotic.htm',{})
-        @@include('../html/_js.htm',{})
-    </body>
+	<body>
+		<div class="wrapper">
+			@@include('../html/_header-ua.htm',{})
+			<main class="page">
+				<section class="introduction">
+					<div class="introduction__container">
+						<div class="introduction__text-block _anim-on-scroll">
+							<h1 class="introduction__title">
+								Вітаю &#128075;,<br />
+								Мене звуть<br />
+								<span class="text-gradient">Олексій</span><br />
+							</h1>
+							<div class="introduction__proffession">Я <span class="introduction__typing"></span></div>
+							<ul class="introduction__list">
+								<li class="introduction__item">веб-розробник</li>
+								<li class="introduction__item">IT-адміністратор</li>
+								<li class="introduction__item">комп’ютерний інженер</li>
+							</ul>
+						</div>
+						<div class="introduction__image _anim-on-scroll">
+							<img src="../img/introduction/01.jpeg" alt="Фото автора" />
+						</div>
+					</div>
+				</section>
+				@@include('../html/_tech-stack-ua.htm', {"titleElement": "h2"}) @@include('../html/_projects-ua.htm', {"titleElement":
+				"h2"})
+			</main>
+			@@include('../html/_footer-ua.htm',{})
+			<div id="particles-js"></div>
+		</div>
+		@@include('../html/_popup-language-ua.htm',{}) @@include('../html/_popup-ru-aggression.htm',{})
+		@@include('../html/_welcome-screen.htm',{}) @@include('../html/_overlay-patriotic.htm',{}) @@include('../html/_js.htm',{})
+	</body>
 </html>

@@ -1,20 +1,29 @@
-// Завдання для копіювання загальних файлів
-export const copy = () => {
-	return app.gulp
-		// Читання загальних файлів з отриманого шляху
-		.src(app.path.src.files, {
-			encoding: false, // Читання файлів у двійковому режимі
-			removeBOM: false // Вимкнення видалення BOM (перші байти файлу, які можуть містити інформацію про кодування)
-		})
+// Експортуємо завдання для копіювання специфічних файлів проєкту, визначених у налаштуваннях
+export const copy = done => {
 
-		// Обробка помилок під час виконання завдання
-		.pipe(app.plugins.plumber(
-			app.plugins.notify.onError({
-				title: 'Copy',
-				message: 'Error: <%= error.message %>',
+	// Створюємо масив завдань для копіювання специфічних файлів проєкту
+	const tasks = app.settings.copyFiles.map(file => {
+
+		return () => app.gulp
+
+			// Читання файлу або папки з вихідної директорії проєкту
+			.src(`${app.path.srcFolder}/${file.src}`, {
+				encoding: false,
+				removeBOM: false
 			})
-		))
 
-		// Збереження загальних файлів до папки build
-		.pipe(app.gulp.dest(app.path.build.files));
+			// Обробка помилок під час виконання завдання
+			.pipe(app.plugins.plumber(
+				app.plugins.notify.onError({
+					title: 'Copy',
+					message: 'Error: <%= error.message %>',
+				})
+			))
+
+			// Збереження до папки build
+			.pipe(app.gulp.dest(`${app.path.buildFolder}/${file.dest}`));
+	});
+
+	// Виконуємо всі завдання копіювання специфічних файлів паралельно
+	return app.gulp.parallel(...tasks)(done);
 };

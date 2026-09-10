@@ -8,8 +8,8 @@ import { settings } from './settings.js';
 const rootFolder = nodePath.basename(nodePath.resolve());
 
 // Визначення шляхів для папок build та src
-const buildFolder = `./dist`;
-const srcFolder = `./src`;
+const buildFolder = './dist';
+const srcFolder = './src';
 
 // Шляхи для мов (мультимовний сайт)
 const languages = Object.fromEntries(
@@ -32,7 +32,6 @@ export const path = {
 		jsLibs: `${buildFolder}/js/libs/`,
 		images: `${buildFolder}/img/`,
 		fonts: `${buildFolder}/fonts/`,
-		files: `${buildFolder}/projects/`
 	},
 	src: {
 		html: `${srcFolder}/*.html`,
@@ -42,18 +41,16 @@ export const path = {
 		fonts: `${srcFolder}/fonts/**/*.*`,
 		images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,ico,webp,webmanifest}`,
 		svg: `${srcFolder}/img/**/*.svg`,
-		files: `${srcFolder}/projects/**/*.*`
 	},
 	watch: {
 		html: `${srcFolder}/**/*.{htm,html}`,
 		scss: `${srcFolder}/scss/**/*.scss`,
 		js: `${srcFolder}/js/**/*.js`,
 		images: `${srcFolder}/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp,webmanifest}`,
-		files: `${srcFolder}/projects/**/*.*`
 	},
-	clean: buildFolder,
+	rootFolder,
 	buildFolder,
 	srcFolder,
-	rootFolder,
+	clean: buildFolder,
 	languages
 };

@@ -1,7 +1,7 @@
 // Імпорт основного модуля gulp
 import gulp from 'gulp';
 
-// Імпорт загальних плагінів
+// Імпорт загальних/спільних плагінів
 import { plugins } from './gulp/config/plugins.js';
 
 // Імпорт шляхів
@@ -36,39 +36,37 @@ function watcher() {
 	gulp.watch(path.watch.scss, scss);
 	gulp.watch(path.watch.js, js);
 	gulp.watch(path.watch.images, images);
-	gulp.watch(path.watch.files, copy);
 }
 
-// Встановлює режим розробки проєкту
-function setDevMode(done) {
-	app.isBuild = false;
-	app.isDev = true;
-	done();
-}
+// Функція встановлює режим розробки/збірки проєкту
+function setMode(mode) {
+	return function (done) {
+		app.isDev = mode === 'dev';
+		app.isBuild = mode === 'build';
 
-// Встановлює режим збірки проєкту
-function setBuildMode(done) {
-	app.isBuild = true;
-	app.isDev = false;
-	done();
+		done();
+	};
 }
 
 // Основні задачі
 const mainTasks = gulp.series(
 	fonts,
-	gulp.parallel(copy, html, scss, js, images)
+	gulp.parallel(html, scss, js, images, copy)
 );
 
-// Побудова сценаріїв виконання завдань
+// Побудова сценарія виконання завдання під час розробки проєкту
 const dev = gulp.series(
-	setDevMode,
+	setMode('dev'),
 	reset,
 	mainTasks,
 	gulp.parallel(watcher, server)
 );
 
-const build = gulp.series(setBuildMode, reset, mainTasks);
-const deployZIP = gulp.series(setBuildMode, reset, mainTasks, zip);
+// Побудова сценарія виконання завдання під час збірки проєкту
+const build = gulp.series(setMode('build'), reset, mainTasks);
+
+// Побудова сценарія виконання завдання під час архівації
+const deployZIP = gulp.series(setMode('build'), reset, mainTasks, zip);
 
 // Експорт сценаріїв
 export { dev, build, deployZIP };

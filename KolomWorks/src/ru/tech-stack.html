@@ -1,26 +1,21 @@
 <!doctype html>
 <html lang="ru">
-    <!-- prettier-ignore -->
-    @@include('../html/_head-ru.htm', { 
+	<!-- prettier-ignore -->
+	@@include('../html/_head-ru.htm', { 
 		"title": "Мои навыки", 
 		"description": "Навыки системного администрирования Windows и Linux, работа с сетями, веб-разработка и современные IT-инструменты.", 
 		"keywords": "системное администрирование, администрирование Windows, администрирование Linux, настройка сетей, IT инфраструктура, тонкие клиенты, настройка принтеров, термопринтеры, MyQ сервер печати, ТСД терминалы, видеонаблюдение, IP камеры, СКУД система доступа, IP телефония, DECT телефония", 
 		"url": "https://kolomworks.com/ru/tech-stack.html", 
 		"ogTitle": "Алексей Коломийченко — навыки и технологии", 
 		"ogImage": "../img/ogImage/01.png" })
-    <body>
-        <div class="wrapper">
-            @@include('../html/_header-ru.htm',{})
-            <main class="page">
-                @@include('../html/_tech-stack-ru.htm', {"titleElement": "h1"})
-            </main>
-            @@include('../html/_footer-ru.htm',{})
-            <div id="particles-js" aria-hidden="true"></div>
-        </div>
-        @@include('../html/_popup-language-ru.htm',{})
-        @@include('../html/_popup-ru-aggression.htm',{})
-        @@include('../html/_welcome-screen.htm',{})
-        @@include('../html/_overlay-patriotic.htm',{})
-        @@include('../html/_js.htm',{})
-    </body>
+	<body>
+		<div class="wrapper">
+			@@include('../html/_header-ru.htm',{})
+			<main class="page">@@include('../html/_tech-stack-ru.htm', {"titleElement": "h1"})</main>
+			@@include('../html/_footer-ru.htm',{})
+			<div id="particles-js" aria-hidden="true"></div>
+		</div>
+		@@include('../html/_popup-language-ru.htm',{}) @@include('../html/_popup-ru-aggression.htm',{})
+		@@include('../html/_welcome-screen.htm',{}) @@include('../html/_overlay-patriotic.htm',{}) @@include('../html/_js.htm',{})
+	</body>
 </html>

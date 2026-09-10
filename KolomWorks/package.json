@@ -6,8 +6,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "gulp",
-		"build": "gulp build --build",
-		"zip": "gulp deployZIP --build"
+		"build": "gulp build",
+		"zip": "gulp deployZIP"
 	},
 	"author": "KolomWorks",
 	"license": "ISC",

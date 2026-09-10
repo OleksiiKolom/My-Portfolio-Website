@@ -95,8 +95,8 @@ const copyWoff2 = () => {
 		.pipe(app.gulp.dest(app.path.build.fonts));
 };
 
-// Завдання для обробки шрифтів
+// Експортуємо завдання для обробки шрифтів
 export const fonts = done => {
-	// Виконуємо послідовно конвертацію та копіювання шрифтів
-	return app.gulp.series(ttfToWoff, ttfToWoff2, copyWoff, copyWoff2)(done);
+	// Виконуємо паралельно конвертацію та копіювання шрифтів
+	return app.gulp.parallel(ttfToWoff, ttfToWoff2, copyWoff, copyWoff2)(done);
 };

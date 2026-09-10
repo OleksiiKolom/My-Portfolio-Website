@@ -1,6 +1,7 @@
 import fileInclude from 'gulp-file-include'; 		// Підключення файлів за директивою include
 import webpHtmlNosvg from 'gulp-webp-html-nosvg';   // Додавання HTML-коду підключення WebP зображень
 import versionNumber from 'gulp-version-number';   	// Версіонування CSS та JS файлів для уникнення кешування
+import merge from 'merge-stream'; 					// Об'єднання потоків
 
 // Створення потоку обробки HTML
 const processHtml = (srcPath, destPath) => {
@@ -43,7 +44,7 @@ const processHtml = (srcPath, destPath) => {
 		.pipe(app.plugins.browsersync.stream());
 };
 
-// Завдання для обробки HTML-файлів
+// Експортуємо завдання для обробки HTML-файлів
 export const html = () => {
 	// Масив для зберігання завдань обробки HTML
 	const tasks = [];
@@ -60,5 +61,5 @@ export const html = () => {
 	}
 
 	// Повертаємо об'єднаний потік для виконання всіх завдань
-	return app.plugins.merge(...tasks);
+	return merge(...tasks);
 };

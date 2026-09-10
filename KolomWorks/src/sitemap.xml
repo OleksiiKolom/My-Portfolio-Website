@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<url>
+		<loc>https://kolomworks.com/en/</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://kolomworks.com/en/" />
+		<xhtml:link rel="alternate" hreflang="uk" href="https://kolomworks.com/uk/" />
+		<xhtml:link rel="alternate" hreflang="ru" href="https://kolomworks.com/ru/" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://kolomworks.com/en/" />
+		<lastmod>2026-03-12</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://kolomworks.com/en/about.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://kolomworks.com/en/about.html" />
+		<xhtml:link rel="alternate" hreflang="uk" href="https://kolomworks.com/uk/about.html" />
+		<xhtml:link rel="alternate" hreflang="ru" href="https://kolomworks.com/ru/about.html" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://kolomworks.com/en/about.html" />
+		<lastmod>2026-03-12</lastmod>
+		<changefreq>yearly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	<url>
+		<loc>https://kolomworks.com/en/tech-stack.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://kolomworks.com/en/tech-stack.html" />
+		<xhtml:link rel="alternate" hreflang="uk" href="https://kolomworks.com/uk/tech-stack.html" />
+		<xhtml:link rel="alternate" hreflang="ru" href="https://kolomworks.com/ru/tech-stack.html" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://kolomworks.com/en/tech-stack.html" />
+		<lastmod>2026-03-12</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://kolomworks.com/en/projects.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://kolomworks.com/en/projects.html" />
+		<xhtml:link rel="alternate" hreflang="uk" href="https://kolomworks.com/uk/projects.html" />
+		<xhtml:link rel="alternate" hreflang="ru" href="https://kolomworks.com/ru/projects.html" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://kolomworks.com/en/projects.html" />
+		<lastmod>2026-03-12</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	<url>
+		<loc>https://kolomworks.com/en/contact.html</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="https://kolomworks.com/en/contact.html" />
+		<xhtml:link rel="alternate" hreflang="uk" href="https://kolomworks.com/uk/contact.html" />
+		<xhtml:link rel="alternate" hreflang="ru" href="https://kolomworks.com/ru/contact.html" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://kolomworks.com/en/contact.html" />
+		<lastmod>2026-03-12</lastmod>
+		<changefreq>yearly</changefreq>
+		<priority>0.6</priority>
+	</url>
+</urlset>
