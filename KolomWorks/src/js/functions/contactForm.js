@@ -50,7 +50,7 @@ export function contactForm({
 			},
 			error: {
 				firstMessage: "Something went wrong",
-				secondMessage: "Please try submitting the form later"
+				secondMessage: "Please try submitting the form again later"
 			},
 			reload: "Try again"
 		},
@@ -226,21 +226,14 @@ export function contactForm({
 		const lang = messages[currentLanguage];
 		const state = isSuccess ? "success" : "error";
 
-		const iconClass = isSuccess ? "_icon-checkMark" : "_icon-warning";
-		const reloadButton = !isSuccess
-			? `<a href="${window.location.href}" class="result-form__reload">
-          ${lang.reload}
-        </a>`
-			: "";
-
+		const iconClass = isSuccess ? "_icon-success" : "_icon-error";
 		const { firstMessage, secondMessage } = lang[state];
 
 		form.innerHTML = `
       <div class="form__result result-form">
-        <div class="result-form__icon ${iconClass}"></div>
-        <p>${firstMessage}</p>
-        <p>${secondMessage}</p>
-        ${reloadButton}
+        <div class="result-form__icon ${iconClass} aria-hidden="true"></div>
+		<h4 class="result-form__title">${firstMessage}</h4>
+		<p class="result-form__description">${secondMessage}</p>
       </div>
     `;
 	}
